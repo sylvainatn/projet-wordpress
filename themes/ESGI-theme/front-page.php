@@ -2,11 +2,9 @@
 
 <main>
     <div class="container">
-        <div class="row">
-            <div class="col-md-6 offset-md-3">
-                <?php include('template-parts/identity-card.php'); ?>
-            </div>
-        </div>
+        <h1>A really professional structure for all your events!</h1>
+
+
     </div>
 </main>
 

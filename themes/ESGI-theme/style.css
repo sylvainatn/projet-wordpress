@@ -4523,32 +4523,64 @@ ul {
 }
 
 .site-header {
-  font-family: "Overpass", sans-serif;
-  padding: 1.5rem 0 5rem;
-  font-family: "Overpass", sans-serif;
-  font-size: 1rem;
-  line-height: 1.49;
-  letter-spacing: 0.1em;
+  background-color: white;
+  height: 135px;
+  width: 100%;
+  position: relative;
 }
-.site-header ul {
+.site-header .container {
+  height: 100%;
+}
+.site-header .header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+@media (max-width: 768px) {
+  .site-header .header-content {
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.25rem;
+  }
+}
+.site-header .header-logo img {
+  max-height: 70px;
+  width: auto;
+}
+@media (max-width: 768px) {
+  .site-header .main-nav {
+    display: none;
+  }
+}
+.site-header .main-nav ul {
   list-style: none;
   margin: 0;
   padding: 0;
   display: flex;
-  justify-content: center;
+  gap: 2.5rem;
 }
-.site-header ul li.current-menu-item a, .site-header ul li.current_page_parent a, .site-header ul li:hover a {
-  background-color: var(--main-color);
-  color: var(--white);
+@media (max-width: 768px) {
+  .site-header .main-nav ul {
+    gap: 1.25rem;
+  }
 }
-.site-header ul li a {
-  padding: 0.5625rem 0.4375rem;
+.site-header .main-nav ul li.current-menu-item a, .site-header .main-nav ul li.current_page_parent a, .site-header .main-nav ul li:hover a {
+  color: #050A3A;
+  border-bottom: 2px solid #050A3A;
+}
+.site-header .main-nav ul li a {
+  padding: 0.5rem 0;
   display: block;
   text-decoration: none;
-  line-height: 1;
-  color: var(--text-color);
-  margin: 0 1.5rem;
-  transition: color 0.3s, background-color 0.3s;
+  color: #333;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: color 0.3s, border-bottom 0.3s;
+  border-bottom: 2px solid transparent;
+}
+.site-header .main-nav ul li a:hover {
+  color: #050A3A;
 }
 
 .site-footer {
@@ -4556,11 +4588,6 @@ ul {
   color: white;
   padding: 3.75rem 0 2.5rem 0;
   margin-top: 5rem;
-}
-.site-footer .footer-content .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1.25rem;
 }
 .site-footer .footer-main {
   display: flex;

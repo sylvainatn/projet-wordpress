@@ -9,17 +9,24 @@
 </head>
 
 <body <?php body_class(); ?>>
-
     <header class="site-header">
         <div class="container">
-            <?php
-            if (has_nav_menu('primary_menu')) {
-                wp_nav_menu([
-                    'container' => 'nav',
-                    'container_class' => 'main-nav',
-                    'theme_location' => 'primary_menu'
-                ]);
-            }
-            ?>
+            <div class="header-content">
+                <div class="header-logo">
+                    <img src="<?php echo get_template_directory_uri(); ?>/src/images/svg/logo.svg" alt="Logo ESGI">
+                </div>
+
+                <img src="<?php echo get_template_directory_uri(); ?>/src/images/svg/menu.svg" alt="Menu">
+
+                <?php
+                if (has_nav_menu('primary_menu')) {
+                    wp_nav_menu([
+                        'container' => 'nav',
+                        'container_class' => 'main-nav',
+                        'theme_location' => 'primary_menu'
+                    ]);
+                }
+                ?>
+            </div>
         </div>
     </header>

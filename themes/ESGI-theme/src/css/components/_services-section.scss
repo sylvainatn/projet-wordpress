@@ -1,0 +1,68 @@
+@use "../partials/fonts" as f;
+@use "../partials/colors" as c;
+
+.services-section {
+    // padding: 80px 0;
+    background-color: c.$white;
+    
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+      
+    .services-title {
+        @include f.mulish-bold;
+        font-size: 3rem;
+        margin-bottom: 3rem;
+        margin-left: 157px;
+    }
+    
+    .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        margin-top: 2rem;
+    }
+    
+    .service-item {
+        border-radius: 10px;
+        & img {
+            width: 100%;
+            height: 100%;
+            aspect-ratio: 1/1;
+            object-fit: cover;
+        }
+    }
+    
+    .service-icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 80px;
+        height: 80px;
+        margin: 0 auto 1.5rem;
+        background-color: c.$blue;
+        border-radius: 50%;
+        color: c.$white;
+        
+        svg {
+            width: 48px;
+            height: 48px;
+        }
+    }
+    
+    .service-title {
+        @include f.mulish-semibold;
+        font-size: 1.5rem;
+        color: c.$black;
+        margin-bottom: 1rem;
+    }
+    
+    .service-description {
+        @include f.mulish-regular;
+        font-size: 1rem;
+        line-height: 1.6;
+        color: c.$light-grey;
+        margin-bottom: 0;
+    }
+}

@@ -5,8 +5,13 @@
 	"main": "index.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"watch": "sass --watch --no-charset ./src/css/style.scss ./style.css"
+		"build": "sass --no-charset ./src/css/style.scss ./style.css",
+		"watch": "sass --watch --no-charset ./src/css/style.scss ./style.css",
+		"dev": "npm run watch"
 	},
 	"author": "",
-	"license": "ISC"
+	"license": "ISC",
+	"devDependencies": {
+		"sass": "^1.89.2"
+	}
 }

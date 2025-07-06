@@ -1,0 +1,27 @@
+@use "../partials/fonts" as f;
+@use "../partials/colors" as c;
+
+.partners-section {
+    padding: 80px 0;
+    max-width: 85vw;
+    margin: 0 auto;
+
+    .partners-title {
+        font-weight: 600;
+        font-size: 63px;
+        line-height: 100%;
+        letter-spacing: 3px;
+        margin-bottom: 3rem;
+    }
+
+    .partners-grid {
+        display: grid;
+        grid-template-columns: repeat(6, max-content);
+        gap: 5%;
+
+        .partner-logo {
+            display: flex;
+            align-items: center;
+        }
+    }
+}

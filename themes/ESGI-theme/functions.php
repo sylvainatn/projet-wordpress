@@ -16,6 +16,10 @@ function esgi_register_nav_menu()
 add_action('wp_enqueue_scripts', 'esgi_enqueue_assets', 10);
 function esgi_enqueue_assets()
 {
+    // Google Fonts - Mulish
+    wp_enqueue_style('google-fonts', 'https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap', array(), null);
+    
+    // CSS principal du thème
     wp_enqueue_style('main', get_stylesheet_uri());
 }
 
@@ -168,7 +172,233 @@ function esgi_customize_register($wp_customize)
         'label' => __('Titres en majuscules', 'ESGI'),
         'description' => __('Afficher tous les titres en majuscules', 'ESGI')
     ]);
+
+
+    // Customizer pour les sections de la page d'accueil
+    // Section Hero
+    $wp_customize->add_section('esgi_hero_section', array(
+        'title' => __('Hero Section', 'ESGI'),
+        'priority' => 30,
+    ));
+    
+    // Hero - Titre
+    $wp_customize->add_setting('esgi_hero_title', array(
+        'default' => 'A really professional structure for all your events!',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+    
+    $wp_customize->add_control('esgi_hero_title', array(
+        'label' => __('Hero Title', 'ESGI'),
+        'section' => 'esgi_hero_section',
+        'type' => 'text',
+    ));
+    
+    // Hero - Image
+    $wp_customize->add_setting('esgi_hero_image', array(
+        'default' => '',
+        'sanitize_callback' => 'absint',
+    ));
+    
+    $wp_customize->add_control(new WP_Customize_Media_Control($wp_customize, 'esgi_hero_image', array(
+        'label' => __('Hero Image', 'ESGI'),
+        'section' => 'esgi_hero_section',
+        'mime_type' => 'image',
+        'description' => __('Sélectionnez une image pour la section Hero', 'ESGI'),
+    )));
+    
+      
+    // Section Services
+    $wp_customize->add_section('esgi_services_section', array(
+        'title' => __('Services Section', 'ESGI'),
+        'priority' => 35,
+    ));
+    
+    // Services - Titre
+    $wp_customize->add_setting('esgi_services_title', array(
+        'default' => 'Our Services',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+    $wp_customize->add_control('esgi_services_title', array(
+        'label' => __('Services Title', 'ESGI'),
+        'section' => 'esgi_services_section',
+        'type' => 'text',
+    ));
+    
+    // Services - Activer/Désactiver
+    $wp_customize->add_setting('esgi_services_enable', array(
+        'default' => true,
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+    $wp_customize->add_control('esgi_services_enable', array(
+        'label' => __('Enable Services Section', 'ESGI'),
+        'section' => 'esgi_services_section',
+        'type' => 'checkbox',
+    ));
+    
+    // Services - Images
+    for ($i = 1; $i <= 4; $i++) {
+        $wp_customize->add_setting("esgi_services_image_$i", array(
+            'default' => '',
+            'sanitize_callback' => 'absint',
+        ));
+        $wp_customize->add_control(new WP_Customize_Media_Control($wp_customize, "esgi_services_image_$i", array(
+            'label' => sprintf(__('Service Image %d', 'ESGI'), $i),
+            'section' => 'esgi_services_section',
+            'mime_type' => 'image',
+            'description' => sprintf(__('Sélectionnez l\'image %d pour la section Services', 'ESGI'), $i),
+        )));
+    }
+    
+    // Section About Us
+    $wp_customize->add_section('esgi_about_section', array(
+        'title' => __('About Us Section', 'ESGI'),
+        'priority' => 36,
+    ));
+    
+    // About Us - Titre
+    $wp_customize->add_setting('esgi_about_title', array(
+        'default' => 'About Us',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+    $wp_customize->add_control('esgi_about_title', array(
+        'label' => __('About Title', 'ESGI'),
+        'section' => 'esgi_about_section',
+        'type' => 'text',
+    ));
+     
+    // About Us - Contenu
+    $wp_customize->add_setting('esgi_about_content', array(
+        'default' => 'We are a passionate team dedicated to creating exceptional experiences for our clients. With years of expertise in our field, we strive to deliver innovative solutions that exceed expectations.',
+        'sanitize_callback' => 'wp_kses_post',
+    ));
+    $wp_customize->add_control('esgi_about_content', array(
+        'label' => __('About Content', 'ESGI'),
+        'section' => 'esgi_about_section',
+        'type' => 'textarea',
+        'description' => __('Décrivez votre entreprise ou votre équipe', 'ESGI'),
+    ));
+    
+    // About Us - Image
+    $wp_customize->add_setting('esgi_about_image', array(
+        'default' => '',
+        'sanitize_callback' => 'absint',
+    ));
+    $wp_customize->add_control(new WP_Customize_Media_Control($wp_customize, 'esgi_about_image', array(
+        'label' => __('About Us Image', 'ESGI'),
+        'section' => 'esgi_about_section',
+        'mime_type' => 'image',
+        'description' => __('Sélectionnez une image pour la section About Us', 'ESGI'),
+    )));
+
+    // About Us - Who are we? - Titre
+    $wp_customize->add_setting('esgi_about_who_title', array(
+        'default' => 'Who are we?',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+    $wp_customize->add_control('esgi_about_who_title', array(
+        'label' => __('Who are we? - Title', 'ESGI'),
+        'section' => 'esgi_about_section',
+        'type' => 'text',
+    ));
+
+    // About Us - Who are we? - Contenu
+    $wp_customize->add_setting('esgi_about_who_content', array(
+        'default' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu convallis elit, at convallis magna.',
+        'sanitize_callback' => 'wp_kses_post',
+    ));
+    $wp_customize->add_control('esgi_about_who_content', array(
+        'label' => __('Who are we? - Content', 'ESGI'),
+        'section' => 'esgi_about_section',
+        'type' => 'textarea',
+    ));
+
+    // About Us - Our vision - Titre
+    $wp_customize->add_setting('esgi_about_vision_title', array(
+        'default' => 'Our vision',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+    $wp_customize->add_control('esgi_about_vision_title', array(
+        'label' => __('Our vision - Title', 'ESGI'),
+        'section' => 'esgi_about_section',
+        'type' => 'text',
+    ));
+
+    // About Us - Our vision - Contenu
+    $wp_customize->add_setting('esgi_about_vision_content', array(
+        'default' => 'Nullam faucibus interdum massa. Duis eget leo mattis, pulvinar nisi et, consequat lectus. Suspendisse commodo magna orci, id luctus risus porta pharetra. Fusce vehicula aliquet urna non ultricies.',
+        'sanitize_callback' => 'wp_kses_post',
+    ));
+    $wp_customize->add_control('esgi_about_vision_content', array(
+        'label' => __('Our vision - Content', 'ESGI'),
+        'section' => 'esgi_about_section',
+        'type' => 'textarea',
+    ));
+
+    // About Us - Our mission - Titre
+    $wp_customize->add_setting('esgi_about_mission_title', array(
+        'default' => 'Our mission',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+    $wp_customize->add_control('esgi_about_mission_title', array(
+        'label' => __('Our mission - Title', 'ESGI'),
+        'section' => 'esgi_about_section',
+        'type' => 'text',
+    ));
+
+    // About Us - Our mission - Contenu
+    $wp_customize->add_setting('esgi_about_mission_content', array(
+        'default' => 'Vivamus et viverra neque, ut pharetra ipsum. Aliquam eget consequat libero, quis cursus tortor. Aliquam suscipit eros sit amet velit malesuada dapibus. Fusce in vehicula tellus. Donec quis lorem ut magna tincidunt egestas.',
+        'sanitize_callback' => 'wp_kses_post',
+    ));
+    $wp_customize->add_control('esgi_about_mission_content', array(
+        'label' => __('Our mission - Content', 'ESGI'),
+        'section' => 'esgi_about_section',
+        'type' => 'textarea',
+    ));
+    
+    // Section Partners
+    $wp_customize->add_section('esgi_partners_section', array(
+        'title' => __('Partners Section', 'ESGI'),
+        'priority' => 40,
+    ));
+    
+    // Partners - Titre
+    $wp_customize->add_setting('esgi_partners_title', array(
+        'default' => 'Our Partners',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+    $wp_customize->add_control('esgi_partners_title', array(
+        'label' => __('Partners Title', 'ESGI'),
+        'section' => 'esgi_partners_section',
+        'type' => 'text',
+    ));
+    
+    // Partners - Activer/Désactiver
+    $wp_customize->add_setting('esgi_partners_enable', array(
+        'default' => true,
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+    $wp_customize->add_control('esgi_partners_enable', array(
+        'label' => __('Enable Partners Section', 'ESGI'),
+        'section' => 'esgi_partners_section',
+        'type' => 'checkbox',
+    ));
+    
+    // Partners - Images
+    for ($i = 1; $i <= 6; $i++) {
+        $wp_customize->add_setting("esgi_partners_image_$i", array(
+            'default' => '',
+            'sanitize_callback' => 'absint',
+        ));
+        $wp_customize->add_control(new WP_Customize_Media_Control($wp_customize, "esgi_partners_image_$i", array(
+            'label' => sprintf(__('Partner Logo %d', 'ESGI'), $i),
+            'section' => 'esgi_partners_section',
+            'mime_type' => 'image',
+            'description' => sprintf(__('Sélectionnez le logo %d pour la section Partners', 'ESGI'), $i),
+        )));
+    }
 }
+add_action('customize_register', 'esgi_customize_register');
 
 function sanitize_bool_value($value)
 {

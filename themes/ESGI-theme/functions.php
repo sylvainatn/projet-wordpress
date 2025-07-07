@@ -9,7 +9,8 @@ function esgi_register_nav_menu()
     register_nav_menus(array(
         'primary_menu' => __('Primary Menu', 'ESGI'),
         'footer_menu'  => __('Footer Menu', 'ESGI'),
-        'post_footer_menu' => __('Post Footer Menu', 'ESGI'), // Ajout du nouveau menu
+        'post_footer_menu' => __('Post Footer Menu', 'ESGI'),
+        'mobile_menu' => __('Mobile Dropdown Menu', 'ESGI'), // Nouveau menu pour le dropdown
     ));
 }
 
@@ -21,6 +22,9 @@ function esgi_enqueue_assets()
     
     // CSS principal du thème
     wp_enqueue_style('main', get_stylesheet_uri());
+    
+    // JavaScript pour le menu mobile
+    wp_enqueue_script('esgi-menu', get_template_directory_uri() . '/js/menu.js', array(), '1.0.0', true);
 }
 
 add_action('after_setup_theme', 'esgi_add_theme_support', 0);
@@ -457,4 +461,16 @@ function esgi_maybe_uppercase_title($title)
         return strtoupper($title);
     }
     return $title;
+}
+
+// Fonction de fallback pour le menu mobile
+function esgi_fallback_mobile_menu() {
+    echo '<ul class="dropdown-nav-list">';
+    echo '<li><a href="' . home_url('/') . '">Home</a></li>';
+    echo '<li><a href="' . home_url('/#about') . '">About Us</a></li>';
+    echo '<li><a href="' . home_url('/#services') . '">Services</a></li>';
+    echo '<li><a href="' . home_url('/#partners') . '">Partners</a></li>';
+    echo '<li><a href="' . home_url('/blog') . '">Blog</a></li>';
+    echo '<li><a href="' . home_url('/contact') . '">Contact</a></li>';
+    echo '</ul>';
 }

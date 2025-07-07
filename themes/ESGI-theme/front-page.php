@@ -4,15 +4,21 @@
     <?php get_template_part('template-parts/hero-section'); ?>
 
     <?php if (get_theme_mod('esgi_about_enable', true)) : ?>
-        <?php get_template_part('template-parts/about-section'); ?>
+        <div id="about">
+            <?php get_template_part('template-parts/about-section'); ?>
+        </div>
     <?php endif; ?>
 
     <?php if (get_theme_mod('esgi_services_enable', true)) : ?>
-        <?php get_template_part('template-parts/services-section'); ?>
+        <div id="services">
+            <?php get_template_part('template-parts/services-section'); ?>
+        </div>
     <?php endif; ?>
 
     <?php if (get_theme_mod('esgi_partners_enable', true)) : ?>
-        <?php get_template_part('template-parts/partners-section'); ?>
+        <div id="partners">
+            <?php get_template_part('template-parts/partners-section'); ?>
+        </div>
     <?php endif; ?>
 </main>
 

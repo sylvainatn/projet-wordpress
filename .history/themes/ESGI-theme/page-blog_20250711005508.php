@@ -1,0 +1,13 @@
+<?php
+/*
+Template Name: Blog Page
+*/
+get_header(); ?>
+
+<main class="container">
+   <div class="hero-s">
+      <h1 class="hero-tistle"><?php echo esc_html(get_theme_mod('esgi_hero_title', 'A really professional structure for all your events!')); ?></h1>
+   </div>
+</main>
+
+<?php get_footer(); ?>

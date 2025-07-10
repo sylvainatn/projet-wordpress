@@ -4,13 +4,11 @@
 .post,
 .page {
 	@include fonts.text4;
-
 	h1:not(.hero-title) {
 		text-align: center;
 		@include fonts.text1;
 		margin-bottom: 2rem;
 	}
-
 	.post-meta {
 		display: flex;
 		justify-content: center;
@@ -18,7 +16,6 @@
 		@include fonts.text6;
 		gap: 2rem;
 		margin-bottom: 3rem;
-
 		.post-author {
 			display: flex;
 			gap: 0.5rem;
@@ -34,10 +31,8 @@
 			}
 		}
 	}
-
 	.related_articles {
 		margin-top: 3rem;
-
 		h2,
 		h3 {
 			font-size: 1.25rem;

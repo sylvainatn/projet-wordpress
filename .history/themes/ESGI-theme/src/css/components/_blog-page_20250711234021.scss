@@ -1,0 +1,113 @@
+@use "../partials/fonts" as f;
+@use "../partials/colors" as c;
+
+.blog-content {
+   margin-top: 4rem;
+
+   .search-section {
+      margin-bottom: 3rem;
+
+      h2 {
+         font-family: f.$font-primary;
+         font-size: 1.5rem;
+         font-weight: 600;
+         margin-bottom: 1rem;
+         color: c.$primary-text;
+      }
+
+      form {
+         position: relative;
+         max-width: 500px;
+
+         input[type="search"] {
+            width: 100%;
+            padding: 0.75rem 3rem 0.75rem 1rem;
+            border: none;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 1rem;
+            outline: none;
+
+            &:focus {
+               border-bottom: 1px solid #e0e0e0;
+            }
+         }<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M12.6656 10.7188L15.7812 13.8344C16.0719 14.1281 16.0719 14.6031 15.7781 14.8969L14.8938 15.7812C14.6031 16.075 14.1281 16.075 13.8344 15.7812L10.7188 12.6656C10.5781 12.525 10.5 12.3344 10.5 12.1344V11.625C9.39688 12.4875 8.00937 13 6.5 13C2.90937 13 0 10.0906 0 6.5C0 2.90937 2.90937 0 6.5 0C10.0906 0 13 2.90937 13 6.5C13 8.00937 12.4875 9.39688 11.625 10.5H12.1344C12.3344 10.5 12.525 10.5781 12.6656 10.7188ZM2.5 6.5C2.5 8.7125 4.29063 10.5 6.5 10.5C8.7125 10.5 10.5 8.70938 10.5 6.5C10.5 4.2875 8.70938 2.5 6.5 2.5C4.2875 2.5 2.5 4.29063 2.5 6.5Z" fill="#969696"/>
+</svg>
+
+
+         button {
+            position: absolute;
+            right: 0.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+            color: #999;
+            padding: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            &:hover {
+               color: #666;
+            }
+         }
+      }
+   }
+
+   .recent-posts-section {
+      h2 {
+         font-family: f.$font-primary;
+         font-size: 1.5rem;
+         font-weight: 600;
+         margin-bottom: 2rem;
+         color: c.$primary-text;
+      }
+
+      .recent-posts {
+         display: flex;
+         flex-direction: column;
+         gap: 1.5rem;
+
+         .recent-post-item {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+
+            .post-thumbnail {
+               flex-shrink: 0;
+               width: 80px;
+               height: 80px;
+
+               img {
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  border-radius: 4px;
+               }
+            }
+
+            .post-content {
+               flex: 1;
+
+               h3 {
+                  font-family: f.$font-primary;
+                  font-size: 1rem;
+                  font-weight: 600;
+                  color: c.$primary-text;
+                  margin-bottom: 0.5rem;
+                  line-height: 1.4;
+               }
+
+               p {
+                  font-size: 0.875rem;
+                  color: #891d1d;
+                  margin: 0;
+               }
+            }
+         }
+      }
+   }
+}

@@ -1,4 +1,3 @@
-<!-- Sidebar -->
 <aside class="blog-sidebar">
 
    <?php
@@ -33,6 +32,7 @@
             'post_status' => 'publish'
          ));
 
+         $backup_post = $post ?? null;
          foreach ($recent_posts as $post) : ?>
             <div class="recent-post-item">
                <div class="post-thumbnail">
@@ -49,7 +49,13 @@
                   <p><?php echo get_the_date('j M, Y', $post['ID']); ?></p>
                </div>
             </div>
-         <?php endforeach; ?>
+         <?php endforeach;
+         if (isset($backup_post)) {
+            $post = $backup_post;
+         } else {
+            unset($post);
+         }
+         ?>
       </div>
    </div>
 

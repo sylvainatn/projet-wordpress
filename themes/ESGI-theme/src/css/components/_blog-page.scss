@@ -6,9 +6,11 @@
    display: grid;
    grid-template-columns: 2fr 1fr;
    gap: 4rem;
+   width: 85vw;
+   margin-left: auto;
+   margin-right: auto;
 
    .main-posts-section {
-      margin-right: 140px;
 
       .active-filters {
          margin-bottom: 2rem;
@@ -230,7 +232,6 @@
    }
 
    .blog-sidebar {
-      margin-left: 140px;
       width: 500px;
 
       .search-section {
@@ -515,95 +516,242 @@
    }
 
    // Styles pour la page single
-   .post {
-      .blog-content {
-         .main-posts-section {
-            .single-post {
-               background: white;
-               border-radius: 8px;
+
+   &.single-blog {
+      display: flex;
+      gap: 4rem;
+      width: 85vw;
+      margin-left: auto;
+      margin-right: auto;
+
+      .main-posts-section {
+         width: 1000px;
+
+         .single-post {
+            background: white;
+            overflow: hidden;
+
+            .post-thumbnail {
+               width: 100%;
+               height: 500px;
                overflow: hidden;
-               box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+               margin: 0;
+               position: relative;
 
-               .post-thumbnail {
+               img {
                   width: 100%;
-                  height: 400px;
-                  overflow: hidden;
-                  margin: 0;
-                  position: relative;
-
-                  img {
-                     width: 100%;
-                     height: 100%;
-                     object-fit: cover;
-                  }
-
-                  .post-category {
-                     position: absolute;
-                     top: 1rem;
-                     left: 1rem;
-                     background: rgba(0, 0, 0, 0.7);
-                     color: white;
-                     padding: 0.25rem 0.75rem;
-                     border-radius: 4px;
-                     font-family: f.$font-primary;
-                     font-size: 0.75rem;
-                     font-weight: 500;
-                  }
+                  height: 100%;
+                  object-fit: cover;
                }
 
-               .post-info {
-                  padding: 2rem;
+               .post-category {
+                  position: absolute;
+                  top: 1rem;
+                  left: 1rem;
+                  background: rgba(0, 0, 0, 0.7);
+                  color: white;
+                  padding: 0.25rem 0.75rem;
+                  border-radius: 4px;
+                  font-family: f.$font-primary;
+                  font-size: 0.75rem;
+                  font-weight: 500;
+               }
+            }
 
-                  .post-category-text {
-                     font-family: f.$font-primary;
-                     font-size: 0.875rem;
-                     color: c.$primary-text;
+            .post-info {
+               padding-top: 2rem;
+
+               .post-category-text {
+                  font-family: f.$font-primary;
+                  font-size: 20px;
+                  color: c.$primary-text;
+                  font-weight: 800;
+                  line-height: 100%;
+                  letter-spacing: 1px;
+               }
+
+               .post-content {
+                  font-family: f.$font-primary;
+                  font-size: 1rem;
+                  line-height: 1.6;
+                  color: #666;
+
+                  p {
                      margin-bottom: 1.5rem;
-                     font-weight: 500;
                   }
 
-                  .post-content {
+                  h2,
+                  h3,
+                  h4,
+                  h5,
+                  h6 {
                      font-family: f.$font-primary;
-                     font-size: 1rem;
-                     line-height: 1.6;
-                     color: #666;
+                     font-weight: 600;
+                     color: c.$primary-text;
+                     margin: 2rem 0 1rem 0;
+                  }
 
-                     p {
-                        margin-bottom: 1.5rem;
-                     }
+                  h2 {
+                     font-size: 1.5rem;
+                  }
 
-                     h2,
-                     h3,
-                     h4,
-                     h5,
-                     h6 {
-                        font-family: f.$font-primary;
-                        font-weight: 600;
-                        color: c.$primary-text;
-                        margin: 2rem 0 1rem 0;
-                     }
+                  h3 {
+                     font-size: 1.25rem;
+                  }
 
-                     h2 {
-                        font-size: 1.5rem;
-                     }
+                  ul,
+                  ol {
+                     margin: 1.5rem 0;
+                     padding-left: 2rem;
+                  }
 
-                     h3 {
-                        font-size: 1.25rem;
-                     }
-
-                     ul,
-                     ol {
-                        margin: 1.5rem 0;
-                        padding-left: 2rem;
-                     }
-
-                     li {
-                        margin-bottom: 0.5rem;
-                     }
+                  li {
+                     margin-bottom: 0.5rem;
                   }
                }
             }
          }
+      }
+   }
+
+   // Styles pour les commentaires
+   .comments-area {
+      margin-top: 3rem;
+      border-radius: 8px;
+
+      .comments-title {
+         font-family: f.$font-primary;
+         font-size: 1.5rem;
+         font-weight: 600;
+         margin-bottom: 2rem;
+         color: c.$primary-text;
+      }
+
+      .comment-list {
+         list-style: none;
+         padding: 0;
+         margin: 0;
+
+         .comment {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 8px;
+            border-left: 4px solid #e0e0e0;
+
+            .comment-author {
+               font-weight: 600;
+               margin-bottom: 0.5rem;
+
+               .avatar {
+                  border-radius: 50%;
+                  margin-right: 10px;
+               }
+            }
+
+            .comment-meta {
+               font-size: 0.875rem;
+               color: #8A8A8A;
+               margin-bottom: 1rem;
+            }
+
+            .comment-content {
+               line-height: 1.6;
+
+               p {
+                  margin-bottom: 1rem;
+
+                  &:last-child {
+                     margin-bottom: 0;
+                  }
+               }
+            }
+
+            .reply {
+               margin-top: 1rem;
+
+               a {
+                  color: c.$primary-text;
+                  font-size: 0.875rem;
+                  text-decoration: none;
+
+                  &:hover {
+                     text-decoration: underline;
+                  }
+               }
+            }
+         }
+      }
+
+      .comment-form {
+         margin-top: 2rem;
+         border-radius: 8px;
+
+         h3 {
+            font-family: f.$font-primary;
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: c.$primary-text;
+         }
+
+         p {
+            margin-bottom: 1rem;
+
+            label {
+               display: block;
+               font-weight: 500;
+               margin-bottom: 0.5rem;
+               color: c.$primary-text;
+            }
+
+            input[type="text"],
+            input[type="email"],
+            input[type="url"],
+            textarea {
+               width: 100%;
+               padding: 0.75rem;
+               border: 1px solid #e0e0e0;
+               border-radius: 4px;
+               font-family: f.$font-primary;
+               font-size: 1rem;
+
+               &:focus {
+                  outline: none;
+                  border-color: c.$primary-text;
+               }
+            }
+
+            textarea {
+               resize: vertical;
+               min-height: 120px;
+            }
+         }
+
+         .form-submit {
+            input[type="submit"] {
+               background: c.$primary-text;
+               color: white;
+               border: none;
+               padding: 0.75rem 2rem;
+               border-radius: 4px;
+               font-family: f.$font-primary;
+               font-weight: 500;
+               cursor: pointer;
+               transition: background-color 0.3s ease;
+
+               &:hover {
+                  background: darken(c.$primary-text, 10%);
+               }
+            }
+         }
+      }
+
+      .no-comments {
+         text-align: center;
+         color: #8A8A8A;
+         font-style: italic;
+         margin: 2rem 0;
       }
    }
 

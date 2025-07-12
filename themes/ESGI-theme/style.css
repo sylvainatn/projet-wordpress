@@ -4419,7 +4419,12 @@ body {
   font-size: 16px;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: "Mulish", sans-serif;
   font-weight: 600;
   line-height: 1.3;
@@ -4478,6 +4483,11 @@ a:hover {
 ul {
   padding-left: 0;
   list-style-position: inside;
+}
+
+.container {
+  width: 85vw;
+  margin: 0 auto;
 }
 
 .archive,
@@ -4988,12 +4998,20 @@ ul {
   left: 0;
 }
 
+.hero-section {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.hero-content {
+  width: 85vw;
+  margin: 0 auto;
+}
+
 .hero-title {
   font-weight: 600;
   font-size: 84px;
   margin-bottom: 10rem;
-  width: 1191px;
-  margin-left: 140px;
 }
 
 .hero-image {
@@ -5011,9 +5029,9 @@ ul {
   display: grid;
   grid-template-columns: 2fr 1fr;
   gap: 4rem;
-}
-.blog-content .main-posts-section {
-  margin-right: 140px;
+  width: 85vw;
+  margin-left: auto;
+  margin-right: auto;
 }
 .blog-content .main-posts-section .active-filters {
   margin-bottom: 2rem;
@@ -5201,7 +5219,6 @@ ul {
   color: #ADADAD;
 }
 .blog-content .blog-sidebar {
-  margin-left: 140px;
   width: 500px;
 }
 .blog-content .blog-sidebar .search-section {
@@ -5440,25 +5457,33 @@ ul {
   background-color: #e0e0e0;
   color: #666;
 }
-.blog-content .post .blog-content .main-posts-section .single-post {
-  background: white;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+.blog-content.single-blog {
+  display: flex;
+  gap: 4rem;
+  width: 85vw;
+  margin-left: auto;
+  margin-right: auto;
 }
-.blog-content .post .blog-content .main-posts-section .single-post .post-thumbnail {
+.blog-content.single-blog .main-posts-section {
+  width: 1000px;
+}
+.blog-content.single-blog .main-posts-section .single-post {
+  background: white;
+  overflow: hidden;
+}
+.blog-content.single-blog .main-posts-section .single-post .post-thumbnail {
   width: 100%;
-  height: 400px;
+  height: 500px;
   overflow: hidden;
   margin: 0;
   position: relative;
 }
-.blog-content .post .blog-content .main-posts-section .single-post .post-thumbnail img {
+.blog-content.single-blog .main-posts-section .single-post .post-thumbnail img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-.blog-content .post .blog-content .main-posts-section .single-post .post-thumbnail .post-category {
+.blog-content.single-blog .main-posts-section .single-post .post-thumbnail .post-category {
   position: absolute;
   top: 1rem;
   left: 1rem;
@@ -5470,48 +5495,167 @@ ul {
   font-size: 0.75rem;
   font-weight: 500;
 }
-.blog-content .post .blog-content .main-posts-section .single-post .post-info {
-  padding: 2rem;
+.blog-content.single-blog .main-posts-section .single-post .post-info {
+  padding-top: 2rem;
 }
-.blog-content .post .blog-content .main-posts-section .single-post .post-info .post-category-text {
+.blog-content.single-blog .main-posts-section .single-post .post-info .post-category-text {
   font-family: "Mulish", sans-serif;
-  font-size: 0.875rem;
+  font-size: 20px;
   color: #050A3A;
-  margin-bottom: 1.5rem;
-  font-weight: 500;
+  font-weight: 800;
+  line-height: 100%;
+  letter-spacing: 1px;
 }
-.blog-content .post .blog-content .main-posts-section .single-post .post-info .post-content {
+.blog-content.single-blog .main-posts-section .single-post .post-info .post-content {
   font-family: "Mulish", sans-serif;
   font-size: 1rem;
   line-height: 1.6;
   color: #666;
 }
-.blog-content .post .blog-content .main-posts-section .single-post .post-info .post-content p {
+.blog-content.single-blog .main-posts-section .single-post .post-info .post-content p {
   margin-bottom: 1.5rem;
 }
-.blog-content .post .blog-content .main-posts-section .single-post .post-info .post-content h2,
-.blog-content .post .blog-content .main-posts-section .single-post .post-info .post-content h3,
-.blog-content .post .blog-content .main-posts-section .single-post .post-info .post-content h4,
-.blog-content .post .blog-content .main-posts-section .single-post .post-info .post-content h5,
-.blog-content .post .blog-content .main-posts-section .single-post .post-info .post-content h6 {
+.blog-content.single-blog .main-posts-section .single-post .post-info .post-content h2,
+.blog-content.single-blog .main-posts-section .single-post .post-info .post-content h3,
+.blog-content.single-blog .main-posts-section .single-post .post-info .post-content h4,
+.blog-content.single-blog .main-posts-section .single-post .post-info .post-content h5,
+.blog-content.single-blog .main-posts-section .single-post .post-info .post-content h6 {
   font-family: "Mulish", sans-serif;
   font-weight: 600;
   color: #050A3A;
   margin: 2rem 0 1rem 0;
 }
-.blog-content .post .blog-content .main-posts-section .single-post .post-info .post-content h2 {
+.blog-content.single-blog .main-posts-section .single-post .post-info .post-content h2 {
   font-size: 1.5rem;
 }
-.blog-content .post .blog-content .main-posts-section .single-post .post-info .post-content h3 {
+.blog-content.single-blog .main-posts-section .single-post .post-info .post-content h3 {
   font-size: 1.25rem;
 }
-.blog-content .post .blog-content .main-posts-section .single-post .post-info .post-content ul,
-.blog-content .post .blog-content .main-posts-section .single-post .post-info .post-content ol {
+.blog-content.single-blog .main-posts-section .single-post .post-info .post-content ul,
+.blog-content.single-blog .main-posts-section .single-post .post-info .post-content ol {
   margin: 1.5rem 0;
   padding-left: 2rem;
 }
-.blog-content .post .blog-content .main-posts-section .single-post .post-info .post-content li {
+.blog-content.single-blog .main-posts-section .single-post .post-info .post-content li {
   margin-bottom: 0.5rem;
+}
+.blog-content .comments-area {
+  margin-top: 3rem;
+  border-radius: 8px;
+}
+.blog-content .comments-area .comments-title {
+  font-family: "Mulish", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  color: #050A3A;
+}
+.blog-content .comments-area .comment-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.blog-content .comments-area .comment-list .comment {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: white;
+  border-radius: 8px;
+  border-left: 4px solid #e0e0e0;
+}
+.blog-content .comments-area .comment-list .comment .comment-author {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+.blog-content .comments-area .comment-list .comment .comment-author .avatar {
+  border-radius: 50%;
+  margin-right: 10px;
+}
+.blog-content .comments-area .comment-list .comment .comment-meta {
+  font-size: 0.875rem;
+  color: #8A8A8A;
+  margin-bottom: 1rem;
+}
+.blog-content .comments-area .comment-list .comment .comment-content {
+  line-height: 1.6;
+}
+.blog-content .comments-area .comment-list .comment .comment-content p {
+  margin-bottom: 1rem;
+}
+.blog-content .comments-area .comment-list .comment .comment-content p:last-child {
+  margin-bottom: 0;
+}
+.blog-content .comments-area .comment-list .comment .reply {
+  margin-top: 1rem;
+}
+.blog-content .comments-area .comment-list .comment .reply a {
+  color: #050A3A;
+  font-size: 0.875rem;
+  text-decoration: none;
+}
+.blog-content .comments-area .comment-list .comment .reply a:hover {
+  text-decoration: underline;
+}
+.blog-content .comments-area .comment-form {
+  margin-top: 2rem;
+  border-radius: 8px;
+}
+.blog-content .comments-area .comment-form h3 {
+  font-family: "Mulish", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: #050A3A;
+}
+.blog-content .comments-area .comment-form p {
+  margin-bottom: 1rem;
+}
+.blog-content .comments-area .comment-form p label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: #050A3A;
+}
+.blog-content .comments-area .comment-form p input[type=text],
+.blog-content .comments-area .comment-form p input[type=email],
+.blog-content .comments-area .comment-form p input[type=url],
+.blog-content .comments-area .comment-form p textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  font-family: "Mulish", sans-serif;
+  font-size: 1rem;
+}
+.blog-content .comments-area .comment-form p input[type=text]:focus,
+.blog-content .comments-area .comment-form p input[type=email]:focus,
+.blog-content .comments-area .comment-form p input[type=url]:focus,
+.blog-content .comments-area .comment-form p textarea:focus {
+  outline: none;
+  border-color: #050A3A;
+}
+.blog-content .comments-area .comment-form p textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+.blog-content .comments-area .comment-form .form-submit input[type=submit] {
+  background: #050A3A;
+  color: white;
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 4px;
+  font-family: "Mulish", sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.blog-content .comments-area .comment-form .form-submit input[type=submit]:hover {
+  background: rgb(0.9523809524, 1.9047619048, 11.0476190476);
+}
+.blog-content .comments-area .no-comments {
+  text-align: center;
+  color: #8A8A8A;
+  font-style: italic;
+  margin: 2rem 0;
 }
 @media (max-width: 768px) {
   .blog-content .blog-content {
@@ -5527,22 +5671,22 @@ ul {
 .services-section {
   background-color: #fff;
 }
-.services-section .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
 .services-section .services-title {
   font-family: "Mulish", sans-serif;
   font-weight: 700;
   font-size: 3rem;
   margin-bottom: 3rem;
-  margin-left: 157px;
+  width: 85vw;
+  margin-left: auto;
+  margin-right: auto;
 }
 .services-section .services-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   margin-top: 2rem;
+  width: 85vw;
+  margin-left: auto;
+  margin-right: auto;
 }
 .services-section .service-item {
   border-radius: 10px;
@@ -5588,6 +5732,8 @@ ul {
   padding: 80px 0;
 }
 .about-section .about-wrapper {
+  width: 85vw;
+  margin: 0 auto;
   justify-content: center;
   align-items: center;
 }
@@ -5629,6 +5775,8 @@ ul {
   margin-bottom: 0;
 }
 .about-section .about-us-information {
+  width: 85vw;
+  margin: 0 auto;
   display: flex;
   align-items: center;
 }

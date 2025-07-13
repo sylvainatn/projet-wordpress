@@ -19,10 +19,10 @@ function esgi_enqueue_assets()
 {
     // Google Fonts - Mulish
     wp_enqueue_style('google-fonts', 'https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap', array(), null);
-    
+
     // CSS principal du thème
     wp_enqueue_style('main', get_stylesheet_uri());
-    
+
     // JavaScript pour le menu mobile
     wp_enqueue_script('esgi-menu', get_template_directory_uri() . '/js/menu.js', array(), '1.0.0', true);
 }
@@ -184,39 +184,39 @@ function esgi_customize_register($wp_customize)
         'title' => __('Hero Section', 'ESGI'),
         'priority' => 30,
     ));
-    
+
     // Hero - Titre
     $wp_customize->add_setting('esgi_hero_title', array(
         'default' => 'A really professional structure for all your events!',
         'sanitize_callback' => 'sanitize_text_field',
     ));
-    
+
     $wp_customize->add_control('esgi_hero_title', array(
         'label' => __('Hero Title', 'ESGI'),
         'section' => 'esgi_hero_section',
         'type' => 'text',
     ));
-    
+
     // Hero - Image
     $wp_customize->add_setting('esgi_hero_image', array(
         'default' => '',
         'sanitize_callback' => 'absint',
     ));
-    
+
     $wp_customize->add_control(new WP_Customize_Media_Control($wp_customize, 'esgi_hero_image', array(
         'label' => __('Hero Image', 'ESGI'),
         'section' => 'esgi_hero_section',
         'mime_type' => 'image',
         'description' => __('Sélectionnez une image pour la section Hero', 'ESGI'),
     )));
-    
-      
+
+
     // Section Services
     $wp_customize->add_section('esgi_services_section', array(
         'title' => __('Services Section', 'ESGI'),
         'priority' => 35,
     ));
-    
+
     // Services - Titre
     $wp_customize->add_setting('esgi_services_title', array(
         'default' => 'Our Services',
@@ -227,7 +227,7 @@ function esgi_customize_register($wp_customize)
         'section' => 'esgi_services_section',
         'type' => 'text',
     ));
-    
+
     // Services - Activer/Désactiver
     $wp_customize->add_setting('esgi_services_enable', array(
         'default' => true,
@@ -238,7 +238,7 @@ function esgi_customize_register($wp_customize)
         'section' => 'esgi_services_section',
         'type' => 'checkbox',
     ));
-    
+
     // Services - Images
     for ($i = 1; $i <= 4; $i++) {
         $wp_customize->add_setting("esgi_services_image_$i", array(
@@ -252,13 +252,13 @@ function esgi_customize_register($wp_customize)
             'description' => sprintf(__('Sélectionnez l\'image %d pour la section Services', 'ESGI'), $i),
         )));
     }
-    
+
     // Section About Us
     $wp_customize->add_section('esgi_about_section', array(
         'title' => __('About Us Section', 'ESGI'),
         'priority' => 36,
     ));
-    
+
     // About Us - Titre
     $wp_customize->add_setting('esgi_about_title', array(
         'default' => 'About Us',
@@ -269,7 +269,18 @@ function esgi_customize_register($wp_customize)
         'section' => 'esgi_about_section',
         'type' => 'text',
     ));
-     
+
+    // About Us page - Titre 
+    $wp_customize->add_setting('about_page_title', array(
+        'default' => 'Sky’s the limit',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+    $wp_customize->add_control('about_page_title', array(
+        'label' => __('About page Title', 'ESGI'),
+        'section' => 'esgi_about_section',
+        'type' => 'text',
+    ));
+
     // About Us - Contenu
     $wp_customize->add_setting('esgi_about_content', array(
         'default' => 'We are a passionate team dedicated to creating exceptional experiences for our clients. With years of expertise in our field, we strive to deliver innovative solutions that exceed expectations.',
@@ -281,7 +292,7 @@ function esgi_customize_register($wp_customize)
         'type' => 'textarea',
         'description' => __('Décrivez votre entreprise ou votre équipe', 'ESGI'),
     ));
-    
+
     // About Us - Image
     $wp_customize->add_setting('esgi_about_image', array(
         'default' => '',
@@ -359,13 +370,13 @@ function esgi_customize_register($wp_customize)
         'section' => 'esgi_about_section',
         'type' => 'textarea',
     ));
-    
+
     // Section Partners
     $wp_customize->add_section('esgi_partners_section', array(
         'title' => __('Partners Section', 'ESGI'),
         'priority' => 40,
     ));
-    
+
     // Partners - Titre
     $wp_customize->add_setting('esgi_partners_title', array(
         'default' => 'Our Partners',
@@ -376,7 +387,7 @@ function esgi_customize_register($wp_customize)
         'section' => 'esgi_partners_section',
         'type' => 'text',
     ));
-    
+
     // Partners - Activer/Désactiver
     $wp_customize->add_setting('esgi_partners_enable', array(
         'default' => true,
@@ -387,7 +398,7 @@ function esgi_customize_register($wp_customize)
         'section' => 'esgi_partners_section',
         'type' => 'checkbox',
     ));
-    
+
     // Partners - Images
     for ($i = 1; $i <= 6; $i++) {
         $wp_customize->add_setting("esgi_partners_image_$i", array(
@@ -401,7 +412,72 @@ function esgi_customize_register($wp_customize)
             'description' => sprintf(__('Sélectionnez le logo %d pour la section Partners', 'ESGI'), $i),
         )));
     }
+
+    $wp_customize->add_section('esgi_team_section', array(
+        'title' => __('Team Section', 'ESGI'),
+        'priority' => 37,
+    ));
+
+    // Team - Titre
+    $wp_customize->add_setting('esgi_team_title', array(
+        'default' => 'Our Team',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+    $wp_customize->add_control('esgi_team_title', array(
+        'label' => __('Team Title', 'ESGI'),
+        'section' => 'esgi_team_section',
+        'type' => 'text',
+    ));
+
+    // Team - Membres (4 membres)
+    for ($i = 1; $i <= 4; $i++) {
+        // Image du membre
+        $wp_customize->add_setting("esgi_team_image_$i", array(
+            'default' => '',
+            'sanitize_callback' => 'absint',
+        ));
+        $wp_customize->add_control(new WP_Customize_Media_Control($wp_customize, "esgi_team_image_$i", array(
+            'label' => sprintf(__('Photo Membre %d', 'ESGI'), $i),
+            'section' => 'esgi_team_section',
+            'mime_type' => 'image',
+        )));
+
+        // Poste du membre
+        $wp_customize->add_setting("esgi_team_position_$i", array(
+            'default' => '',
+            'sanitize_callback' => 'sanitize_text_field',
+        ));
+        $wp_customize->add_control("esgi_team_position_$i", array(
+            'label' => sprintf(__('Poste Membre %d', 'ESGI'), $i),
+            'section' => 'esgi_team_section',
+            'type' => 'text',
+        ));
+
+        // Téléphone du membre
+        $wp_customize->add_setting("esgi_team_phone_$i", array(
+            'default' => '',
+            'sanitize_callback' => 'sanitize_text_field',
+        ));
+        $wp_customize->add_control("esgi_team_phone_$i", array(
+            'label' => sprintf(__('Téléphone Membre %d', 'ESGI'), $i),
+            'section' => 'esgi_team_section',
+            'type' => 'text',
+        ));
+
+        // Email du membre
+        $wp_customize->add_setting("esgi_team_email_$i", array(
+            'default' => '',
+            'sanitize_callback' => 'sanitize_email',
+        ));
+        $wp_customize->add_control("esgi_team_email_$i", array(
+            'label' => sprintf(__('Email Membre %d', 'ESGI'), $i),
+            'section' => 'esgi_team_section',
+            'type' => 'email',
+        ));
+    }
 }
+
+
 add_action('customize_register', 'esgi_customize_register');
 
 function sanitize_bool_value($value)
@@ -464,7 +540,8 @@ function esgi_maybe_uppercase_title($title)
 }
 
 // Fonction de fallback pour le menu mobile
-function esgi_fallback_mobile_menu() {
+function esgi_fallback_mobile_menu()
+{
     echo '<ul class="dropdown-nav-list">';
     echo '<li><a href="' . home_url('/') . '">Home</a></li>';
     echo '<li><a href="' . home_url('/#about') . '">About Us</a></li>';

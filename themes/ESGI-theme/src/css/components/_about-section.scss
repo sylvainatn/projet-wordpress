@@ -18,10 +18,8 @@
     }
 
     .about-title {
-        @include f.mulish-bold;
-        font-size: 3rem;
-        color: c.$primary-text;
-        margin-bottom: 1rem;
+        @include f.title-section;
+
     }
 
     .about-subtitle {
@@ -61,10 +59,10 @@
         &-text {
             margin-left: 12rem;
             width: 639px;
-            
+
             div {
                 margin-bottom: 4rem;
-                
+
                 &:last-child {
                     margin-bottom: 0;
                 }
@@ -75,7 +73,7 @@
                 font-size: 47px;
                 color: c.$primary-text;
                 line-height: 100%;
-                letter-spacing: 0px;                
+                letter-spacing: 0px;
                 margin-bottom: 1rem;
             }
         }

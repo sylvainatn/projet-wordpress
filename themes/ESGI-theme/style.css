@@ -15,9 +15,6 @@
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  */
 @import url("https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,400;0,700;1,400;1,700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,600;1,300;1,600&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 /*! modern-normalize v3.0.1 | MIT License | https://github.com/sindresorhus/modern-normalize */
 /*
 Document
@@ -4480,69 +4477,6 @@ ul {
   list-style-position: inside;
 }
 
-.archive,
-.post,
-.page {
-  font-family: "Source Serif Pro", serif;
-  font-size: 1rem;
-  line-height: 1.6875rem;
-  letter-spacing: 0.03em;
-}
-.archive h1,
-.post h1,
-.page h1 {
-  text-align: center;
-  font-family: "Overpass", sans-serif;
-  font-size: 1.5625rem;
-  line-height: normal;
-  letter-spacing: 0.1em;
-  margin-bottom: 2rem;
-}
-.archive .post-meta,
-.post .post-meta,
-.page .post-meta {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: var(--grey);
-  font-size: 0.8125rem;
-  line-height: 1.75;
-  letter-spacing: 0.05em;
-  font-family: "Overpass", sans-serif;
-  gap: 2rem;
-  margin-bottom: 3rem;
-}
-.archive .post-meta .post-author,
-.post .post-meta .post-author,
-.page .post-meta .post-author {
-  display: flex;
-  gap: 0.5rem;
-  align-items: center;
-}
-.archive .post-meta .post-author img,
-.post .post-meta .post-author img,
-.page .post-meta .post-author img {
-  aspect-ratio: 1/1;
-  width: 2rem;
-  display: block;
-  border-radius: 9999px;
-  object-fit: cover;
-  object-position: center;
-}
-.archive .related_articles,
-.post .related_articles,
-.page .related_articles {
-  margin-top: 3rem;
-}
-.archive .related_articles h2,
-.archive .related_articles h3,
-.post .related_articles h2,
-.post .related_articles h3,
-.page .related_articles h2,
-.page .related_articles h3 {
-  font-size: 1.25rem;
-}
-
 .site-header {
   background-color: white;
   height: 135px;
@@ -4854,7 +4788,6 @@ ul {
   border: none;
   background-color: transparent;
   transition: color 0.3s;
-  font-family: "Source Serif Pro", serif;
   font-size: 1rem;
   line-height: 1.6875rem;
   letter-spacing: 0.03em;
@@ -4878,7 +4811,6 @@ ul {
   margin-bottom: 1.5rem;
 }
 .identity-card h1 {
-  font-family: "Overpass", sans-serif;
   font-size: 1.5625rem;
   line-height: normal;
   letter-spacing: 0.1em;
@@ -4888,7 +4820,6 @@ ul {
   line-height: 1;
 }
 .identity-card h2 {
-  font-family: "Roboto Mono", monospace;
   font-size: 1rem;
   line-height: 1.6875rem;
   letter-spacing: 0;
@@ -4953,7 +4884,6 @@ ul {
   font-size: 0.8125rem;
   line-height: 1.75;
   letter-spacing: 0.05em;
-  font-family: "Overpass", sans-serif;
 }
 
 .post-list-pagination {
@@ -4962,7 +4892,6 @@ ul {
   font-size: 0.8125rem;
   line-height: 1.75;
   letter-spacing: 0.05em;
-  font-family: "Overpass", sans-serif;
   margin-top: 3rem;
 }
 .post-list-pagination a {
@@ -5081,11 +5010,11 @@ ul {
   margin-right: auto;
 }
 .about-section .about-title {
-  font-family: "Mulish", sans-serif;
-  font-weight: 700;
-  font-size: 3rem;
+  font-weight: 600;
+  font-size: 63px;
   color: #050A3A;
-  margin-bottom: 1rem;
+  letter-spacing: 3px;
+  line-height: 100%;
 }
 .about-section .about-subtitle {
   font-family: "Mulish", sans-serif;
@@ -5157,6 +5086,418 @@ ul {
 .partners-section .partners-grid .partner-logo {
   display: flex;
   align-items: center;
+}
+
+.about-us-page .about-hero {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 80px 0;
+  text-align: center;
+  margin-bottom: 60px;
+}
+.about-us-page .about-hero .about-hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+.about-us-page .about-hero .about-hero-content h1 {
+  font-family: "Mulish", sans-serif;
+  font-weight: 700;
+  font-size: 3rem;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+}
+@media (max-width: 768px) {
+  .about-us-page .about-hero .about-hero-content h1 {
+    font-size: 2.1875rem;
+  }
+}
+.about-us-page .about-hero .about-hero-content .about-hero-subtitle {
+  font-family: "Mulish", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.6;
+  font-size: 1.1875rem;
+  opacity: 0.9;
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto;
+}
+@media (max-width: 768px) {
+  .about-us-page .about-hero .about-hero-content .about-hero-subtitle {
+    font-size: 1rem;
+  }
+}
+.about-us-page .about-story {
+  margin-bottom: 80px;
+}
+.about-us-page .about-story .story-content {
+  padding: 40px 0;
+}
+.about-us-page .about-story .story-content h2 {
+  font-family: "Mulish", sans-serif;
+  font-weight: 600;
+  font-size: 2rem;
+  line-height: 1.3;
+  color: #050A3A;
+  margin-bottom: 30px;
+}
+@media (max-width: 768px) {
+  .about-us-page .about-story .story-content h2 {
+    font-size: 1.625rem;
+  }
+}
+.about-us-page .about-story .story-content p {
+  font-family: "Mulish", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.6;
+  font-size: 1.0625rem;
+  line-height: 1.8;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+.about-us-page .about-story .story-image {
+  padding: 20px;
+}
+.about-us-page .about-story .story-image img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+.about-us-page .about-mission-vision {
+  margin-bottom: 80px;
+}
+.about-us-page .about-mission-vision .mission-card,
+.about-us-page .about-mission-vision .vision-card {
+  background: white;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  height: 100%;
+  transition: transform 0.3s ease;
+}
+.about-us-page .about-mission-vision .mission-card:hover,
+.about-us-page .about-mission-vision .vision-card:hover {
+  transform: translateY(-5px);
+}
+.about-us-page .about-mission-vision .mission-card .card-icon,
+.about-us-page .about-mission-vision .vision-card .card-icon {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+.about-us-page .about-mission-vision .mission-card h3,
+.about-us-page .about-mission-vision .vision-card h3 {
+  font-family: "Mulish", sans-serif;
+  font-weight: 600;
+  font-size: 2rem;
+  line-height: 1.3;
+  font-size: 1.75rem;
+  color: #050A3A;
+  margin-bottom: 20px;
+}
+.about-us-page .about-mission-vision .mission-card p,
+.about-us-page .about-mission-vision .vision-card p {
+  font-family: "Mulish", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.6;
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: #ffffff;
+}
+.about-us-page .about-mission-vision .mission-card {
+  margin-right: 15px;
+}
+@media (max-width: 768px) {
+  .about-us-page .about-mission-vision .mission-card {
+    margin-right: 0;
+    margin-bottom: 30px;
+  }
+}
+.about-us-page .about-mission-vision .vision-card {
+  margin-left: 15px;
+}
+@media (max-width: 768px) {
+  .about-us-page .about-mission-vision .vision-card {
+    margin-left: 0;
+  }
+}
+.about-us-page .about-values {
+  background: #f8f9fa;
+  padding: 80px 0;
+  margin-bottom: 80px;
+}
+.about-us-page .about-values .values-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+.about-us-page .about-values .values-header h2 {
+  font-family: "Mulish", sans-serif;
+  font-weight: 600;
+  font-size: 2rem;
+  line-height: 1.3;
+  color: #050A3A;
+  margin-bottom: 15px;
+}
+.about-us-page .about-values .values-header p {
+  font-family: "Mulish", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.6;
+  font-size: 1.1875rem;
+  color: #ffffff;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.about-us-page .about-values .value-item {
+  text-align: center;
+  padding: 20px;
+}
+.about-us-page .about-values .value-item .value-icon {
+  font-size: 3.5rem;
+  margin-bottom: 20px;
+}
+.about-us-page .about-values .value-item h4 {
+  font-family: "Mulish", sans-serif;
+  font-weight: 700;
+  font-size: 1.375rem;
+  color: #050A3A;
+  margin-bottom: 15px;
+}
+.about-us-page .about-values .value-item p {
+  font-family: "Mulish", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #ffffff;
+}
+.about-us-page .about-leadership {
+  margin-bottom: 80px;
+}
+.about-us-page .about-leadership .leadership-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+.about-us-page .about-leadership .leadership-header h2 {
+  font-family: "Mulish", sans-serif;
+  font-weight: 600;
+  font-size: 2rem;
+  line-height: 1.3;
+  color: #050A3A;
+  margin-bottom: 15px;
+}
+.about-us-page .about-leadership .leadership-header p {
+  font-family: "Mulish", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.6;
+  font-size: 1.1875rem;
+  color: #ffffff;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.about-us-page .about-leadership .leader-card {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+  margin-bottom: 30px;
+}
+.about-us-page .about-leadership .leader-card:hover {
+  transform: translateY(-5px);
+}
+.about-us-page .about-leadership .leader-card .leader-image {
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+}
+.about-us-page .about-leadership .leader-card .leader-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.about-us-page .about-leadership .leader-card .leader-info {
+  padding: 30px;
+  text-align: center;
+}
+.about-us-page .about-leadership .leader-card .leader-info h4 {
+  font-family: "Mulish", sans-serif;
+  font-weight: 700;
+  font-size: 1.375rem;
+  color: #050A3A;
+  margin-bottom: 10px;
+}
+.about-us-page .about-leadership .leader-card .leader-info .leader-position {
+  font-family: "Mulish", sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+  color: #667eea;
+  margin-bottom: 15px;
+}
+.about-us-page .about-leadership .leader-card .leader-info .leader-bio {
+  font-family: "Mulish", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.6;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: #ffffff;
+}
+.about-us-page .about-stats {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 60px 0;
+  margin-bottom: 80px;
+}
+.about-us-page .about-stats .stat-item {
+  text-align: center;
+  padding: 20px;
+}
+.about-us-page .about-stats .stat-item .stat-number {
+  font-family: "Mulish", sans-serif;
+  font-weight: 800;
+  font-size: 3rem;
+  margin-bottom: 10px;
+  color: white;
+}
+@media (max-width: 768px) {
+  .about-us-page .about-stats .stat-item .stat-number {
+    font-size: 2.5rem;
+  }
+}
+.about-us-page .about-stats .stat-item .stat-label {
+  font-family: "Mulish", sans-serif;
+  font-weight: 500;
+  font-size: 1.0625rem;
+  opacity: 0.9;
+}
+.about-us-page .about-cta {
+  background: #2c3e50;
+  color: white;
+  padding: 80px 0;
+  text-align: center;
+}
+.about-us-page .about-cta .cta-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+.about-us-page .about-cta .cta-container h2 {
+  font-family: "Mulish", sans-serif;
+  font-weight: 600;
+  font-size: 2rem;
+  line-height: 1.3;
+  margin-bottom: 20px;
+}
+@media (max-width: 768px) {
+  .about-us-page .about-cta .cta-container h2 {
+    font-size: 2rem;
+  }
+}
+.about-us-page .about-cta .cta-container p {
+  font-family: "Mulish", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.6;
+  font-size: 1.1875rem;
+  opacity: 0.9;
+  margin-bottom: 40px;
+  line-height: 1.6;
+}
+.about-us-page .about-cta .cta-container .about-cta-button {
+  font-family: "Mulish", sans-serif;
+  font-weight: 600;
+  display: inline-block;
+  background: #667eea;
+  color: white;
+  padding: 15px 40px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 1.0625rem;
+  transition: all 0.3s ease;
+}
+.about-us-page .about-cta .cta-container .about-cta-button:hover {
+  background: #5a67d8;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+  color: white;
+  text-decoration: none;
+}
+.about-us-page .about-page-content {
+  margin-bottom: 60px;
+}
+.about-us-page .about-page-content .page-content-wrapper {
+  background: white;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+.about-us-page .about-page-content .page-content-wrapper h1, .about-us-page .about-page-content .page-content-wrapper h2, .about-us-page .about-page-content .page-content-wrapper h3, .about-us-page .about-page-content .page-content-wrapper h4, .about-us-page .about-page-content .page-content-wrapper h5, .about-us-page .about-page-content .page-content-wrapper h6 {
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+.about-us-page .about-page-content .page-content-wrapper p {
+  line-height: 1.7;
+  color: #555;
+  margin-bottom: 20px;
+}
+.about-us-page .about-page-content .page-content-wrapper ul, .about-us-page .about-page-content .page-content-wrapper ol {
+  padding-left: 20px;
+  margin-bottom: 20px;
+}
+.about-us-page .about-page-content .page-content-wrapper ul li, .about-us-page .about-page-content .page-content-wrapper ol li {
+  line-height: 1.6;
+  color: #555;
+  margin-bottom: 5px;
+}
+@media (max-width: 768px) {
+  .about-us-page .about-story .row,
+  .about-us-page .about-mission-vision .row,
+  .about-us-page .about-leadership .row {
+    margin: 0;
+  }
+  .about-us-page .about-story .col-md-6,
+  .about-us-page .about-story .col-md-4,
+  .about-us-page .about-mission-vision .col-md-6,
+  .about-us-page .about-mission-vision .col-md-4,
+  .about-us-page .about-leadership .col-md-6,
+  .about-us-page .about-leadership .col-md-4 {
+    padding: 0 15px;
+  }
+}
+
+.team-section {
+  width: 85vw;
+  margin: 0 auto;
+}
+.team-section h3 {
+  font-weight: 600;
+  font-size: 63px;
+  color: #050A3A;
+  letter-spacing: 3px;
+  line-height: 100%;
+  margin-bottom: 40px;
+}
+.team-section h4 {
+  color: #050A3A;
+  font-size: 35px;
+  font-weight: 600;
+  line-height: 100%;
+  letter-spacing: 0px;
+}
+.team-section p {
+  color: #8A8A8A;
+}
+.team-section ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  list-style: none;
+  padding: 0;
 }
 
 /*# sourceMappingURL=style.css.map */

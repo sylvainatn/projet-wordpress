@@ -475,6 +475,47 @@ function esgi_customize_register($wp_customize)
             'type' => 'email',
         ));
     }
+
+    // Section Corp Parties
+    $wp_customize->add_section('esgi_corp_parties_section', array(
+        'title' => __('Corp Parties Section', 'ESGI'),
+        'priority' => 38,
+    ));
+
+    // Corp Parties - Titre
+    $wp_customize->add_setting('esgi_corp_parties_title', array(
+        'default' => 'Corp. Parties',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+    $wp_customize->add_control('esgi_corp_parties_title', array(
+        'label' => __('Titre Corp Parties', 'ESGI'),
+        'section' => 'esgi_corp_parties_section',
+        'type' => 'text',
+    ));
+
+    // Corp Parties - Contenu
+    $wp_customize->add_setting('esgi_corp_parties_content', array(
+        'default' => 'Specializing in the creation of exceptional events for private and corporate clients, we design, plan and manage every project from conception to execution.',
+        'sanitize_callback' => 'wp_kses_post',
+    ));
+    $wp_customize->add_control('esgi_corp_parties_content', array(
+        'label' => __('Contenu Corp Parties', 'ESGI'),
+        'section' => 'esgi_corp_parties_section',
+        'type' => 'textarea',
+        'description' => __('Décrivez vos services pour les entreprises', 'ESGI'),
+    ));
+
+    // Corp Parties - Image
+    $wp_customize->add_setting('esgi_corp_parties_image', array(
+        'default' => '',
+        'sanitize_callback' => 'absint',
+    ));
+    $wp_customize->add_control(new WP_Customize_Media_Control($wp_customize, 'esgi_corp_parties_image', array(
+        'label' => __('Image Corp Parties', 'ESGI'),
+        'section' => 'esgi_corp_parties_section',
+        'mime_type' => 'image',
+        'description' => __('Sélectionnez une image pour la section Corp Parties', 'ESGI'),
+    )));
 }
 
 

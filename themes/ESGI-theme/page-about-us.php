@@ -1,4 +1,9 @@
-<?php get_header(); ?>
+<?php
+/*
+Template Name: About Us Template
+*/
+
+get_header(); ?>
 
 <main class="container">
 

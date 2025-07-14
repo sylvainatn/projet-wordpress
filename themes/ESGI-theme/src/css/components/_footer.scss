@@ -4,20 +4,21 @@
 .site-footer {
 	background-color: #050A3A;
 	color: white;
-	padding: f.rem(60) 0 f.rem(40) 0;
+	padding: f.rem(40) 0 f.rem(40) 0;
 
 	.footer-main {
 		display: flex;
+		flex-direction: column;
+		justify-content: center;
 		justify-content: space-between;
 		width: 85vw;
 		margin: 0 auto;
 	}
 
-	.footer-left {
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
-		align-items: flex-start;
+	@media (min-width: 768px) {
+		.footer-main {
+			flex-direction: row;
+		}
 	}
 
 	.footer-contact {
@@ -47,12 +48,11 @@
 	.footer-left {
 		display: flex;
 		flex-direction: column;
-		justify-content: space-between;
-		min-height: f.rem(200);
+		margin-bottom: 50px;
+		align-items: center;
 
-		@media (max-width: 768px) {
-			min-height: auto;
-			gap: f.rem(20);
+		@media (min-width: 768px) {
+			margin-bottom: 0px;
 		}
 	}
 
@@ -110,7 +110,7 @@
 			align-self: center;
 		}
 
-		
+
 	}
 
 	.social-icon {

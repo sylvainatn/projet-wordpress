@@ -4918,37 +4918,41 @@ ul {
 
 .hero-title {
   font-weight: 600;
-  font-size: 18px;
+  font-size: 40px;
+  color: #050A3A;
+  letter-spacing: 3px;
+  line-height: 100%;
   margin-bottom: 2rem;
-  width: 280px;
   margin-left: 60px;
+}
+@media (min-width: 768px) {
+  .hero-title {
+    font-size: 50px;
+  }
+}
+@media (min-width: 1200px) {
+  .hero-title {
+    font-size: 63px;
+  }
 }
 @media (min-width: 410px) {
   .hero-title {
-    font-size: 24px;
-    width: 350px;
     margin-bottom: 3rem;
     margin-left: 60px;
   }
 }
 @media (min-width: 576px) {
   .hero-title {
-    font-size: 30px;
-    width: 450px;
     margin-left: 100px;
   }
 }
 @media (min-width: 768px) {
   .hero-title {
-    font-size: 40px;
-    width: 600px;
     margin-left: 140px;
   }
 }
 @media (min-width: 1400px) {
   .hero-title {
-    font-size: 84px;
-    width: 1191px;
     margin-left: 156px;
     margin-bottom: 10rem;
   }
@@ -4963,9 +4967,14 @@ ul {
   width: 300px;
   height: auto;
 }
-@media (min-width: 576px) {
+@media (min-width: 450px) {
   .hero-image img {
     width: 400px;
+  }
+}
+@media (min-width: 576px) {
+  .hero-image img {
+    width: 500px;
   }
 }
 @media (min-width: 768px) {
@@ -5748,6 +5757,10 @@ ul {
   list-style: none;
   padding: 0;
   margin-bottom: 60px;
+}
+.team-section ul li, .team-section ul img {
+  display: block;
+  margin: 0 auto;
 }
 
 .corp-parties-section .corp-parties-text-content {

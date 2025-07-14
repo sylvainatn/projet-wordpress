@@ -4,6 +4,11 @@
 .team-section {
     width: 85vw;
     margin: 0 auto;
+   
+
+    @media (min-width: 768px) {
+        // flex-direction: row;
+    }
 
     h3 {
         @include f.title-section;
@@ -29,5 +34,10 @@
         list-style: none;
         padding: 0;
         margin-bottom: 60px;
+
+        li, img {
+            display: block;
+            margin: 0 auto;
+        }
     }
 }

@@ -106,8 +106,16 @@ $font-primary: "Mulish", sans-serif; // Police principale (Mulish)
 
 @mixin title-section {
 	font-weight: 600;
-	font-size: 63px;
+	font-size: 40px;
 	color: c.$primary-text;
 	letter-spacing: 3px;
 	line-height: 100%;
+
+	@media (min-width: 768px) {
+		font-size: 50px;
+	}
+
+	@media (min-width: 1200px) {
+		font-size: 63px;
+	}
 }

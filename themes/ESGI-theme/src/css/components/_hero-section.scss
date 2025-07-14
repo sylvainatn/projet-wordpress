@@ -3,18 +3,83 @@
 
 .hero-title {
     font-weight: 600;
-    font-size: 84px;
-    margin-bottom: 10rem;
-    width: 1191px;
-    margin-left: 156px;
+    font-size: 18px;
+    margin-bottom: 2rem;
+    width: 280px;
+    margin-left: 60px;
+
+    @media (min-width: 410px) {
+        font-size: 24px;
+        width: 350px;
+        margin-bottom: 3rem;
+        margin-left: 60px;
+    }
+
+    @media (min-width: 576px) {
+        font-size: 30px;
+        width: 450px;
+        margin-left: 100px;
+    }
+
+    @media (min-width: 768px) {
+        font-size: 40px;
+        width: 600px;
+        margin-left: 140px;
+    }
+
+    @media (min-width: 1400px) {
+        font-size: 84px;
+        width: 1191px;
+        margin-left: 156px;
+        margin-bottom: 10rem;
+    }
 }
+
+
 
 .hero-image {
     margin-left: auto;
     margin-right: 0;
     width: fit-content;
+
     & img {
-        width: 1487px;
+        width: 300px;
         height: auto;
+    }
+
+    @media (min-width: 576px) {
+        img {
+            width: 400px;
+        }
+    }
+
+    @media (min-width: 768px) {
+        img {
+            width: 600px;
+        }
+    }
+
+    @media (min-width: 900px) {
+        img {
+            width: 800px;
+        }
+    }
+
+    @media (min-width: 1150px) {
+        img {
+            width: 1000px;
+        }
+    }
+
+    @media (min-width: 1400px) {
+        img {
+            width: 1200px;
+        }
+    }
+
+    @media (min-width: 1700px) {
+        img {
+            width: 1487px;
+        }
     }
 }

@@ -592,3 +592,5 @@ function esgi_fallback_mobile_menu()
     echo '<li><a href="' . home_url('/contact') . '">Contact</a></li>';
     echo '</ul>';
 }
+
+

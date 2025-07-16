@@ -1,0 +1,152 @@
+@use "../partials/colors" as c;
+@use "../partials/fonts" as f;
+@use "../partials/functions" as func;
+
+.contact-page {
+    background: c.$white;
+    color: c.$primary-text;
+    font-family: f.$font-primary;
+
+    .logo {
+        @include f.hero-title;
+        margin: func.rem(32) 0 func.rem(24) 0;
+    }
+
+    .contact-title {
+        @include f.hero-title;
+        margin-bottom: func.rem(16);
+    }
+
+    .contact-desc {
+        @include f.body-text;
+        color: c.$light-grey;
+        margin-bottom: func.rem(40);
+    }
+
+    .contact-infos {
+        display: flex;
+        gap: func.rem(60);
+        margin-bottom: func.rem(40);
+
+        .contact-block {
+            display: flex;
+            flex-direction: column;
+            gap: func.rem(4);
+            strong {
+                @include f.mulish-semibold;
+                margin-bottom: func.rem(4);
+            }
+            span {
+                @include f.body-text;
+                color: c.$primary-text;
+            }
+        }
+    }
+
+    .contact-image {
+        width: 100%;
+        max-width: 700px;
+        margin: func.rem(32) auto;
+        img {
+            width: 100%;
+            border-radius: func.rem(8);
+            object-fit: cover;
+            display: block;
+        }
+    }
+
+    .contact-form-section {
+        margin: func.rem(48) 0 0 0;
+        h2 {
+            @include f.section-title;
+            margin-bottom: func.rem(8);
+        }
+        p {
+            @include f.body-text;
+            color: c.$light-grey;
+            margin-bottom: func.rem(24);
+        }
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: func.rem(20);
+            max-width: 600px;
+
+            input, textarea {
+                border: none;
+                border-bottom: 1px solid c.$light-grey;
+                background: transparent;
+                @include f.body-text;
+                color: c.$primary-text;
+                padding: func.rem(12) 0;
+                resize: none;
+                &::placeholder {
+                    color: c.$light-grey;
+                }
+                &:focus {
+                    outline: none;
+                    border-bottom: 1px solid c.$primary-text;
+                }
+            }
+            textarea {
+                min-height: func.rem(80);
+            }
+            button {
+                @include f.mulish-bold;
+                background: c.$blue;
+                color: c.$white;
+                border: none;
+                padding: func.rem(12) func.rem(40);
+                border-radius: func.rem(6);
+                font-size: func.rem(16);
+                cursor: pointer;
+                margin-top: func.rem(16);
+                transition: background 0.2s;
+                &:hover {
+                    background: darken(c.$blue, 10%);
+                }
+            }
+        }
+    }
+
+    .contact-footer {
+        background: c.$primary-text;
+        color: c.$white;
+        padding: func.rem(32) 6vw func.rem(16) 6vw;
+        margin-top: func.rem(64);
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: space-between;
+
+        .footer-logo {
+            @include f.hero-title;
+            color: c.$white;
+        }
+        .footer-infos {
+            display: flex;
+            gap: func.rem(60);
+            .contact-block {
+                display: flex;
+                flex-direction: column;
+                gap: func.rem(4);
+                strong {
+                    color: c.$white;
+                }
+                span {
+                    color: c.$light-grey;
+                }
+            }
+        }
+        .footer-socials {
+            @include func.social-menu;
+        }
+        .footer-copy {
+            position: absolute;
+            left: 6vw;
+            bottom: func.rem(16);
+            font-size: func.rem(14);
+            color: c.$light-grey;
+        }
+    }
+}

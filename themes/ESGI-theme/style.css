@@ -6175,28 +6175,27 @@ body.error404 .error-page .error-footer .copyright {
 .contact-page .contact-form-section .contact-form button {
   font-family: "Mulish", sans-serif;
   font-weight: 400;
-  background: transparent !important;
-  color: #050A3A !important;
-  border: none !important;
-  border-bottom: 1px solid #050A3A !important;
-  padding: 1rem 0 !important;
-  font-size: 1rem !important;
+  background: transparent;
+  color: #050A3A;
+  border: none;
+  padding: 1rem 0;
+  font-size: 1rem;
   cursor: pointer;
   margin-top: 1rem;
   transition: all 0.2s;
   text-align: left;
-  border-radius: 0 !important;
-  width: auto !important;
+  border-radius: 0;
+  width: auto;
 }
 .contact-page .contact-form-section .contact-form button:hover {
-  color: #3f51b5 !important;
-  border-bottom-color: #3f51b5 !important;
-  background: transparent !important;
+  color: #3f51b5;
+  border-bottom-color: #3f51b5;
+  background: transparent;
 }
 .contact-page .contact-form-section .contact-form button:focus {
   outline: none;
-  border-bottom: 2px solid #050A3A !important;
-  background: transparent !important;
+  border-bottom: 2px solid #050A3A;
+  background: transparent;
 }
 @media (max-width: 768px) {
   .contact-page .contact-infos {

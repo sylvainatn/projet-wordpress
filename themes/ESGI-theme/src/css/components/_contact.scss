@@ -52,10 +52,10 @@
         }
     }
 
-    // Style de l'image de contact - MODIFIÉ POUR AGRANDIR L'IMAGE ET ALIGNER À DROITE
+    
     .contact-image {
-        width: calc(100% + 6vw); // MODIFIÉ: déborde du padding pour coller au bord
-        margin: func.rem(48) -6vw func.rem(48) 0; // MODIFIÉ: margin négatif pour annuler le padding
+        width: calc(100% + 6vw); 
+        margin: func.rem(48) -6vw func.rem(48) 0; 
         display: flex;
         justify-content: flex-end; // MODIFIÉ: image alignée à droite
         
@@ -130,29 +130,29 @@
             // Style minimaliste pour le bouton, comme dans Figma
             button {
                 @include f.mulish-regular;
-                background: transparent !important;
-                color: c.$primary-text !important;
-                border: none !important;
-                border-bottom: 1px solid c.$primary-text !important;
-                padding: func.rem(16) 0 !important;
-                font-size: func.rem(16) !important;
+                background: transparent ;
+                color: c.$primary-text ;
+                border: none ;
+         
+                padding: func.rem(16) 0 ;
+                font-size: func.rem(16) ;
                 cursor: pointer;
                 margin-top: func.rem(16);
                 transition: all 0.2s;
                 text-align: left;
-                border-radius: 0 !important;
-                width: auto !important;
+                border-radius: 0   ;
+                width: auto ;
                 
                 &:hover {
-                    color: c.$blue !important;
-                    border-bottom-color: c.$blue !important;
-                    background: transparent !important;
+                    color: c.$blue ;
+                    border-bottom-color: c.$blue ;
+                    background: transparent ;
                 }
                 
                 &:focus {
                     outline: none;
-                    border-bottom: 2px solid c.$primary-text !important;
-                    background: transparent !important;
+                    border-bottom: 2px solid c.$primary-text ;
+                    background: transparent ;
                 }
             }
         }

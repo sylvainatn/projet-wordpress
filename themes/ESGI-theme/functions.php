@@ -594,3 +594,13 @@ function esgi_fallback_mobile_menu()
 }
 
 
+
+function simple_contact_redirect() {
+    if ($_SERVER['REQUEST_URI'] == '/contact' || $_SERVER['REQUEST_URI'] == '/contact/') {
+         include(get_template_directory() . '/page-contact.php');
+        exit;
+    }
+}
+add_action('template_redirect', 'simple_contact_redirect');
+
+

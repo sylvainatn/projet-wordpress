@@ -5541,6 +5541,8 @@ ul {
 }
 .blog-content .comments-area {
   margin-top: 3rem;
+  padding: 2rem;
+  background: #f8f9fa;
   border-radius: 8px;
 }
 .blog-content .comments-area .comments-title {
@@ -5597,6 +5599,8 @@ ul {
 }
 .blog-content .comments-area .comment-form {
   margin-top: 2rem;
+  padding: 2rem;
+  background: white;
   border-radius: 8px;
 }
 .blog-content .comments-area .comment-form h3 {

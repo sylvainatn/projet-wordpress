@@ -65,11 +65,7 @@ get_header();
                     <div>
                         <?php
                         if (comments_open() || get_comments_number()) {
-                            global $post;
-                            $post = get_post(get_the_ID());
-                            setup_postdata($post);
                             comments_template();
-                            wp_reset_postdata();
                         }
                         ?>
                     </div>

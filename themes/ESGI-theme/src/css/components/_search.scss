@@ -1,0 +1,240 @@
+@use "../partials/colors" as c;
+@use "../partials/fonts" as f;
+@use "../partials/functions" as func;
+
+.search-page {
+    background: c.$white;
+    color: c.$primary-text;
+    font-family: f.$font-primary;
+    padding: func.rem(80) 6vw func.rem(120) 6vw;
+    min-height: 70vh;
+
+   .search-header {
+  position: relative; // pour que top fonctionne si tu veux le décaler
+  margin-bottom: func.rem(60);
+
+  .search-title {
+    position: relative;
+    width: func.rem(1030);        // 1030px → 64.375rem
+    height: func.rem(105);        // 105px  → 6.5625rem
+    top: func.rem(-1);            // -1px   → -0.0625rem
+    opacity: 1;
+    transform: rotate(0deg);
+
+    font-family: "Muli", sans-serif;
+    font-weight: 600;
+    font-size: func.rem(84);      // 84px   → 5.25rem
+    line-height: 100%;
+    letter-spacing: 0;
+
+    color: c.$primary-text;
+    /* Si tu veux garder la coloration du terme recherché */
+    .search-term {
+      color: c.$blue;
+      text-decoration: underline;
+      text-underline-offset: func.rem(8);
+      text-decoration-thickness: func.rem(2);
+    }
+  }
+}
+
+
+    .search-results {
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(func.rem(350), 1fr));
+            gap: func.rem(40);
+            margin-bottom: func.rem(80);
+        }
+
+        .search-result-item {
+            background: c.$white;
+            padding: func.rem(24);
+            border-radius: func.rem(8);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            
+            &:hover {
+                transform: translateY(func.rem(-4));
+                box-shadow: 0 func.rem(12) func.rem(24) rgba(0, 0, 0, 0.1);
+            }
+
+            .result-title {
+                margin-bottom: func.rem(12);
+                
+                a {
+                    @include f.section-title;
+                    color: c.$primary-text;
+                    text-decoration: none;
+                    font-size: func.rem(24);
+                    font-weight: 600;
+                    line-height: 1.3;
+                    transition: color 0.3s ease;
+                    
+                    &:hover {
+                        color: c.$blue;
+                    }
+                }
+            }
+
+            .result-meta {
+                display: flex;
+                gap: func.rem(16);
+                margin-bottom: func.rem(16);
+                
+                .result-category {
+                    @include f.mulish-semibold;
+                    color: c.$blue;
+                    font-size: func.rem(12);
+                    text-transform: uppercase;
+                    letter-spacing: func.rem(1);
+                }
+                
+                .result-date {
+                    @include f.body-text;
+                    color: c.$light-grey;
+                    font-size: func.rem(12);
+                }
+            }
+
+            .result-excerpt {
+                @include f.body-text;
+                color: c.$light-grey;
+                font-size: func.rem(14);
+                line-height: 1.6;
+            }
+        }
+    }
+
+    .search-pagination {
+        display: flex;
+        justify-content: center;
+        margin-top: func.rem(60);
+        
+        .page-numbers {
+            display: inline-flex;
+            gap: func.rem(8);
+            
+            a, span {
+                @include f.body-text;
+                padding: func.rem(12) func.rem(16);
+                color: c.$primary-text;
+                text-decoration: none;
+                border: 1px solid c.$light-grey;
+                border-radius: func.rem(4);
+                transition: all 0.3s ease;
+                
+                &:hover {
+                    background: c.$blue;
+                    color: c.$white;
+                    border-color: c.$blue;
+                }
+                
+                &.current {
+                    background: c.$blue;
+                    color: c.$white;
+                    border-color: c.$blue;
+                }
+            }
+        }
+    }
+
+    .no-results {
+        text-align: center;
+        padding: func.rem(80) 0;
+        
+        h2 {
+            @include f.section-title;
+            font-size: func.rem(32);
+            color: c.$primary-text;
+            margin-bottom: func.rem(16);
+        }
+        
+        p {
+            @include f.body-text;
+            color: c.$light-grey;
+            font-size: func.rem(16);
+            margin-bottom: func.rem(32);
+        }
+        
+        .search-form-container {
+            max-width: func.rem(400);
+            margin: 0 auto;
+            
+            form {
+                display: flex;
+                gap: func.rem(12);
+                
+                input[type="search"] {
+                    flex: 1;
+                    padding: func.rem(16);
+                    border: 1px solid c.$light-grey;
+                    border-radius: func.rem(4);
+                    font-size: func.rem(16);
+                    
+                    &:focus {
+                        outline: none;
+                        border-color: c.$blue;
+                    }
+                }
+                
+                button {
+                    @include f.mulish-semibold;
+                    background: c.$blue;
+                    color: c.$white;
+                    border: none;
+                    padding: func.rem(16) func.rem(24);
+                    border-radius: func.rem(4);
+                    cursor: pointer;
+                    transition: background 0.3s ease;
+                    
+                    &:hover {
+                        background: darken(c.$blue, 10%);
+                    }
+                }
+            }
+        }
+    }
+
+    // Responsive
+    @media (max-width: 768px) {
+        padding: func.rem(40) 4vw func.rem(80) 4vw;
+        
+        .search-header {
+            margin-bottom: func.rem(40);
+            
+            .search-title {
+                font-size: func.rem(32);
+            }
+        }
+        
+        .search-results {
+            .results-grid {
+                grid-template-columns: 1fr;
+                gap: func.rem(24);
+                margin-bottom: func.rem(60);
+            }
+            
+            .search-result-item {
+                padding: func.rem(20);
+                
+                .result-title a {
+                    font-size: func.rem(20);
+                }
+            }
+        }
+        
+        .search-pagination {
+            margin-top: func.rem(40);
+            
+            .page-numbers {
+                gap: func.rem(4);
+                
+                a, span {
+                    padding: func.rem(8) func.rem(12);
+                    font-size: func.rem(14);
+                }
+            }
+        }
+    }
+}

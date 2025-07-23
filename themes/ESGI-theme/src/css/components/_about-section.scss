@@ -13,18 +13,13 @@
     }
 
     .about-wrapper {
-        width: 85vw;
-        margin: 0 auto;
         justify-content: center;
         align-items: center;
     }
 
     .about-content {
-        max-width: 300px;
         text-align: center;
         text-align: left;
-        margin-left: auto;
-        margin-right: auto;
 
         @media (min-width: 450px) {
             max-width: 400px;
@@ -79,8 +74,6 @@
     }
 
     .about-us-information {
-        width: 85vw;
-        margin: 0 auto;
         display: flex;
         align-items: center;
         flex-direction: column;

@@ -4482,11 +4482,6 @@ ul {
   list-style-position: inside;
 }
 
-.container {
-  width: 85vw;
-  margin: 0 auto;
-}
-
 .archive,
 .post,
 .page {
@@ -5771,9 +5766,6 @@ ul {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   margin-top: 2rem;
-  width: 85vw;
-  margin-left: auto;
-  margin-right: auto;
 }
 .services-section .service-item {
   border-radius: 10px;
@@ -5829,17 +5821,12 @@ ul {
   }
 }
 .about-section .about-wrapper {
-  width: 85vw;
-  margin: 0 auto;
   justify-content: center;
   align-items: center;
 }
 .about-section .about-content {
-  max-width: 300px;
   text-align: center;
   text-align: left;
-  margin-left: auto;
-  margin-right: auto;
 }
 @media (min-width: 450px) {
   .about-section .about-content {
@@ -5907,8 +5894,6 @@ ul {
   margin-bottom: 0;
 }
 .about-section .about-us-information {
-  width: 85vw;
-  margin: 0 auto;
   display: flex;
   align-items: center;
   flex-direction: column;

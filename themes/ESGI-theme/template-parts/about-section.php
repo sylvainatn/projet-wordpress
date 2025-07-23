@@ -4,8 +4,14 @@
  * Template part for displaying About Us section
  */
 
-$about_title = get_theme_mod('esgi_about_title', 'About Us');
-// $about_subtitle = get_theme_mod('esgi_about_subtitle', 'Discover our story');
+if (is_page_template('page-about-us.php') || is_page('about-us')) {
+    // Page About Us - utilise le titre spécifique à About Us
+    $about_title = get_theme_mod('about_page_title', 'Sky’s the limit');
+} else {
+    // Page par défaut
+    $about_title = get_theme_mod('esgi_about_title', 'About Us');
+}
+
 $about_content = get_theme_mod('esgi_about_content', 'Specializing in the creation of exceptional events for private and corporate clients, we design, plan and manage every project from conception to execution.');
 ?>
 

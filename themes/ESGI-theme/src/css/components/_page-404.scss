@@ -1,0 +1,254 @@
+@use "../partials/colors" as c;
+@use "../partials/fonts" as f;
+@use "../partials/functions" as func;
+
+// Styles spécifiques pour la page 404
+body.error404 {
+    margin: 0;
+    padding: 0;
+    background: c.$primary-text; // Fond bleu pour tout le body
+    
+    // Modifier le header pour qu'il soit bleu sur la page 404
+    .site-header {
+        background-color: c.$primary-text !important; // Fond bleu foncé au lieu de blanc
+        
+        .header-content {
+            // Garder la structure existante
+        }
+        
+        .header-logo {
+            img {
+                filter: brightness(0) invert(1); // Rendre le logo blanc
+            }
+        }
+        
+        .mobile-menu-toggle {
+            img {
+                filter: brightness(0) invert(1); // Rendre l'icône menu blanche
+            }
+        }
+        
+        // Le dropdown menu reste identique (déjà bleu)
+        .dropdown-menu {
+            background: c.$primary-text !important; // S'assurer que le menu est bleu
+            
+            .dropdown-menu-content {
+                background: c.$primary-text !important;
+            }
+        }
+    }
+    
+    // Page 404 sans le header dupliqué
+    .error-page {
+        min-height: 100vh; // Hauteur totale de la page
+        background: c.$primary-text;
+        color: c.$white;
+        font-family: f.$font-primary;
+        display: flex;
+        flex-direction: column;
+        padding: func.rem(80) 6vw func.rem(40) 6vw; // Padding top pour compenser le header
+        margin: 0;
+        
+        // Supprimer le header dupliqué
+        .error-header {
+            display: none; // On n'en a pas besoin, on utilise le header WordPress
+        }
+        
+        // Contenu principal centré
+        .error-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            max-width: 600px;
+
+            .error-number {
+                @include f.hero-title;
+                font-size: func.rem(64);
+                color: c.$white;
+                margin-bottom: func.rem(32);
+                font-weight: 700;
+            }
+
+            .error-description {
+                @include f.section-title;
+                color: c.$white;
+                margin-bottom: func.rem(8);
+                font-size: func.rem(18);
+                line-height: 1.4;
+            }
+
+            .error-suggestion {
+                @include f.body-text;
+                color: c.$white;
+                margin-bottom: func.rem(40);
+                font-size: func.rem(18);
+                line-height: 1.4;
+            }
+
+            .search-form {
+                width: 100%;
+                max-width: 500px;
+                position: relative;
+
+                input[type="search"] {
+                    width: 100%;
+                    background: transparent;
+                    border: none;
+                    border-bottom: 1px solid c.$light-grey;
+                    color: c.$white;
+                    @include f.body-text;
+                    padding: func.rem(12) func.rem(40) func.rem(12) 0;
+                    font-size: func.rem(16);
+
+                    &::placeholder {
+                        color: c.$light-grey;
+                        opacity: 0.7;
+                    }
+
+                    &:focus {
+                        outline: none;
+                        border-bottom: 1px solid c.$white;
+                    }
+                }
+
+                // Icône de recherche
+                .search-icon {
+                    position: absolute;
+                    right: func.rem(8);
+                    top: 50%;
+                    transform: translateY(-50%);
+                    color: c.$light-grey;
+                    font-size: func.rem(16);
+                    cursor: pointer;
+                }
+            }
+        }
+    .site-footer {
+      .footer-logo {
+        display: none !important;
+      }
+    }
+        // Footer
+        .error-footer {
+            margin-top: auto;
+            padding-top: func.rem(64);
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            width: 100%;
+            position: relative;
+
+            .footer-info {
+                display: flex;
+                gap: func.rem(80);
+
+                .contact-block {
+                    display: flex;
+                    flex-direction: column;
+                    gap: func.rem(8);
+
+                    .contact-title {
+                        color: c.$white;
+                        font-size: func.rem(14);
+                        font-weight: 600;
+                    }
+
+                    .contact-details {
+                        color: c.$light-grey;
+                        font-size: func.rem(14);
+                        line-height: 1.4;
+                    }
+                }
+            }
+
+            .socials {
+                display: flex;
+                gap: func.rem(16);
+
+                a {
+                    color: c.$light-grey;
+                    font-size: func.rem(20);
+                    transition: color 0.3s ease;
+
+                    &:hover {
+                        color: c.$white;
+                    }
+                }
+            }
+
+            .copyright {
+                position: absolute;
+                bottom: func.rem(-20);
+                left: 0;
+                color: c.$light-grey;
+                font-size: func.rem(12);
+            }
+        }
+    }
+}
+
+// Responsive pour page 404
+@media (max-width: 768px) {
+    body.error404 {
+        .site-header {
+            height: 80px; // Hauteur standard mobile
+        }
+        
+        .error-page {
+            padding: func.rem(100) 4vw func.rem(32) 4vw;
+
+            .error-content {
+                .error-number {
+                    font-size: func.rem(48);
+                }
+
+                .error-description,
+                .error-suggestion {
+                    font-size: func.rem(16);
+                }
+            }
+
+            .error-footer {
+                flex-direction: column;
+                gap: func.rem(32);
+                align-items: flex-start;
+
+                .footer-info {
+                    flex-direction: column;
+                    gap: func.rem(32);
+                }
+
+                .copyright {
+                    position: static;
+                    margin-top: func.rem(20);
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    body.error404 {
+        .site-header {
+            height: 100px;
+        }
+        
+        .error-page {
+            padding: func.rem(120) 6vw func.rem(40) 6vw;
+        }
+    }
+}
+
+@media (min-width: 1200px) {
+    body.error404 {
+        .site-header {
+            height: 135px;
+        }
+        
+        .error-page {
+            padding: func.rem(155) 6vw func.rem(40) 6vw;
+        }
+    }
+}

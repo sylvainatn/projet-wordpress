@@ -270,6 +270,17 @@ function esgi_customize_register($wp_customize)
         'type' => 'text',
     ));
 
+    // About Us page - Titre 
+    $wp_customize->add_setting('about_page_title', array(
+        'default' => 'Sky’s the limit',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+    $wp_customize->add_control('about_page_title', array(
+        'label' => __('About page Title', 'ESGI'),
+        'section' => 'esgi_about_section',
+        'type' => 'text',
+    ));
+
     // About Us - Contenu
     $wp_customize->add_setting('esgi_about_content', array(
         'default' => 'We are a passionate team dedicated to creating exceptional experiences for our clients. With years of expertise in our field, we strive to deliver innovative solutions that exceed expectations.',
@@ -401,7 +412,113 @@ function esgi_customize_register($wp_customize)
             'description' => sprintf(__('Sélectionnez le logo %d pour la section Partners', 'ESGI'), $i),
         )));
     }
+
+    $wp_customize->add_section('esgi_team_section', array(
+        'title' => __('Team Section', 'ESGI'),
+        'priority' => 37,
+    ));
+
+    // Team - Titre
+    $wp_customize->add_setting('esgi_team_title', array(
+        'default' => 'Our Team',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+    $wp_customize->add_control('esgi_team_title', array(
+        'label' => __('Team Title', 'ESGI'),
+        'section' => 'esgi_team_section',
+        'type' => 'text',
+    ));
+
+    // Team - Membres (4 membres)
+    for ($i = 1; $i <= 4; $i++) {
+        // Image du membre
+        $wp_customize->add_setting("esgi_team_image_$i", array(
+            'default' => '',
+            'sanitize_callback' => 'absint',
+        ));
+        $wp_customize->add_control(new WP_Customize_Media_Control($wp_customize, "esgi_team_image_$i", array(
+            'label' => sprintf(__('Photo Membre %d', 'ESGI'), $i),
+            'section' => 'esgi_team_section',
+            'mime_type' => 'image',
+        )));
+
+        // Poste du membre
+        $wp_customize->add_setting("esgi_team_position_$i", array(
+            'default' => '',
+            'sanitize_callback' => 'sanitize_text_field',
+        ));
+        $wp_customize->add_control("esgi_team_position_$i", array(
+            'label' => sprintf(__('Poste Membre %d', 'ESGI'), $i),
+            'section' => 'esgi_team_section',
+            'type' => 'text',
+        ));
+
+        // Téléphone du membre
+        $wp_customize->add_setting("esgi_team_phone_$i", array(
+            'default' => '',
+            'sanitize_callback' => 'sanitize_text_field',
+        ));
+        $wp_customize->add_control("esgi_team_phone_$i", array(
+            'label' => sprintf(__('Téléphone Membre %d', 'ESGI'), $i),
+            'section' => 'esgi_team_section',
+            'type' => 'text',
+        ));
+
+        // Email du membre
+        $wp_customize->add_setting("esgi_team_email_$i", array(
+            'default' => '',
+            'sanitize_callback' => 'sanitize_email',
+        ));
+        $wp_customize->add_control("esgi_team_email_$i", array(
+            'label' => sprintf(__('Email Membre %d', 'ESGI'), $i),
+            'section' => 'esgi_team_section',
+            'type' => 'email',
+        ));
+    }
+
+    // Section Corp Parties
+    $wp_customize->add_section('esgi_corp_parties_section', array(
+        'title' => __('Corp Parties Section', 'ESGI'),
+        'priority' => 38,
+    ));
+
+    // Corp Parties - Titre
+    $wp_customize->add_setting('esgi_corp_parties_title', array(
+        'default' => 'Corp. Parties',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+    $wp_customize->add_control('esgi_corp_parties_title', array(
+        'label' => __('Titre Corp Parties', 'ESGI'),
+        'section' => 'esgi_corp_parties_section',
+        'type' => 'text',
+    ));
+
+    // Corp Parties - Contenu
+    $wp_customize->add_setting('esgi_corp_parties_content', array(
+        'default' => 'Specializing in the creation of exceptional events for private and corporate clients, we design, plan and manage every project from conception to execution.',
+        'sanitize_callback' => 'wp_kses_post',
+    ));
+    $wp_customize->add_control('esgi_corp_parties_content', array(
+        'label' => __('Contenu Corp Parties', 'ESGI'),
+        'section' => 'esgi_corp_parties_section',
+        'type' => 'textarea',
+        'description' => __('Décrivez vos services pour les entreprises', 'ESGI'),
+    ));
+
+    // Corp Parties - Image
+    $wp_customize->add_setting('esgi_corp_parties_image', array(
+        'default' => '',
+        'sanitize_callback' => 'absint',
+    ));
+    $wp_customize->add_control(new WP_Customize_Media_Control($wp_customize, 'esgi_corp_parties_image', array(
+        'label' => __('Image Corp Parties', 'ESGI'),
+        'section' => 'esgi_corp_parties_section',
+        'mime_type' => 'image',
+        'description' => __('Sélectionnez une image pour la section Corp Parties', 'ESGI'),
+    )));
 }
+
+
 add_action('customize_register', 'esgi_customize_register');
 
 function sanitize_bool_value($value)
@@ -523,3 +640,14 @@ function esgi_add_blog_query_vars($vars)
     $vars[] = 'blog_tag';
     return $vars;
 }
+
+
+function simple_contact_redirect() {
+    if ($_SERVER['REQUEST_URI'] == '/contact' || $_SERVER['REQUEST_URI'] == '/contact/') {
+         include(get_template_directory() . '/page-contact.php');
+        exit;
+    }
+}
+add_action('template_redirect', 'simple_contact_redirect');
+
+

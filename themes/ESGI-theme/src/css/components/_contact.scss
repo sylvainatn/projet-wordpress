@@ -1,0 +1,250 @@
+@use "../partials/colors" as c;
+@use "../partials/fonts" as f;
+@use "../partials/functions" as func;
+
+.contact-page {
+    background: c.$white;
+    color: c.$primary-text;
+    font-family: f.$font-primary;
+    padding: 0 6vw;
+
+    .contact-title {
+        @include f.hero-title;
+        margin-bottom: func.rem(16);
+        font-size: func.rem(48);
+        font-weight: 300;
+    }
+
+    .contact-desc {
+        @include f.body-text;
+        color: c.$light-grey;
+        margin-bottom: func.rem(48);
+        font-size: func.rem(16);
+    }
+
+    .contact-infos {
+        display: flex;
+        gap: func.rem(80);
+        margin-bottom: func.rem(48);
+        justify-content: flex-end; // MODIFIÉ: alignement à droite
+
+        .contact-block {
+            display: flex;
+            flex-direction: column;
+            gap: func.rem(8);
+            align-items: flex-end; // MODIFIÉ: alignement à droite
+            
+            strong {
+                @include f.mulish-semibold;
+                margin-bottom: func.rem(8);
+                font-size: func.rem(16);
+                color: c.$primary-text;
+                text-align: right; // MODIFIÉ: texte aligné à droite
+            }
+            
+            span {
+                @include f.body-text;
+                color: c.$light-grey;
+                font-size: func.rem(14);
+                line-height: 1.6;
+                text-align: right; // MODIFIÉ: texte aligné à droite
+            }
+        }
+    }
+
+    
+    .contact-image {
+        width: calc(100% + 6vw); 
+        margin: func.rem(48) -6vw func.rem(48) 0; 
+        display: flex;
+        justify-content: flex-end; // MODIFIÉ: image alignée à droite
+        
+        img {
+            width: func.rem(1487); // Agrandi de 487px à 800px
+            height: func.rem(631); // Agrandi de 231px à 400px
+            border-radius: func.rem(12);
+            object-fit: cover;
+            display: block;
+            margin-right: 0; // AJOUTÉ: supprime le margin droit
+        }
+    }
+
+    .contact-form-section {
+        margin: func.rem(64) 0;
+        
+        h2 {
+            @include f.section-title;
+            margin-bottom: func.rem(8);
+            font-size: func.rem(32);
+            font-weight: 300;
+        }
+        
+        p {
+            @include f.body-text;
+            color: c.$light-grey;
+            margin-bottom: func.rem(32);
+            font-size: func.rem(16);
+        }
+        
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: func.rem(24);
+            max-width: func.rem(600);
+
+            .form-row {
+                display: flex;
+                gap: func.rem(32);
+                
+                input {
+                    flex: 1;
+                }
+            }
+
+            input, textarea {
+                border: none;
+                border-bottom: 1px solid c.$light-grey;
+                background: transparent;
+                @include f.body-text;
+                color: c.$primary-text;
+                padding: func.rem(16) 0;
+                font-size: func.rem(16);
+                resize: none;
+                
+                &::placeholder {
+                    color: c.$light-grey;
+                    font-size: func.rem(16);
+                }
+                
+                &:focus {
+                    outline: none;
+                    border-bottom: 1px solid c.$primary-text;
+                }
+            }
+            
+            textarea {
+                min-height: func.rem(120);
+                padding-top: func.rem(16);
+            }
+            
+            // Style minimaliste pour le bouton, comme dans Figma
+            button {
+                @include f.mulish-regular;
+                background: transparent ;
+                color: c.$primary-text ;
+                border: none ;
+         
+                padding: func.rem(16) 0 ;
+                font-size: func.rem(16) ;
+                cursor: pointer;
+                margin-top: func.rem(16);
+                transition: all 0.2s;
+                text-align: left;
+                border-radius: 0   ;
+                width: auto ;
+                
+                &:hover {
+                    color: c.$blue ;
+                    border-bottom-color: c.$blue ;
+                    background: transparent ;
+                }
+                
+                &:focus {
+                    outline: none;
+                    border-bottom: 2px solid c.$primary-text ;
+                    background: transparent ;
+                }
+            }
+        }
+    }
+
+    // Responsive
+    @media (max-width: 768px) {
+        .contact-infos {
+            flex-direction: column;
+            gap: func.rem(32);
+        }
+        
+        .contact-title {
+            font-size: func.rem(36);
+        }
+        
+        .contact-form-section h2 {
+            font-size: func.rem(24);
+        }
+        
+        // Responsive pour l'image agrandie
+        .contact-image img {
+            width: 100%;
+            height: func.rem(300);
+        }
+    }
+}
+
+.contact-footer {
+    background: c.$primary-text;
+    color: c.$white;
+    padding: func.rem(48) 6vw func.rem(24) 6vw;
+    margin-top: func.rem(80);
+    display: flex;
+    flex-direction: column;
+    gap: func.rem(32);
+    position: relative;
+
+    .footer-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        
+        .footer-logo {
+            @include f.hero-title;
+            color: c.$white;
+            font-size: func.rem(32);
+        }
+        
+        .footer-infos {
+            display: flex;
+            gap: func.rem(80);
+            
+            .contact-block {
+                display: flex;
+                flex-direction: column;
+                gap: func.rem(8);
+                
+                strong {
+                    color: c.$white;
+                    font-size: func.rem(16);
+                }
+                
+                span {
+                    color: c.$light-grey;
+                    font-size: func.rem(14);
+                }
+            }
+        }
+        
+        .footer-socials {
+            @include func.social-menu;
+        }
+    }
+    
+    .footer-copy {
+        font-size: func.rem(14);
+        color: c.$light-grey;
+        text-align: center;
+        padding-top: func.rem(24);
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    @media (max-width: 768px) {
+        .footer-content {
+            flex-direction: column;
+            gap: func.rem(32);
+        }
+        
+        .footer-infos {
+            flex-direction: column;
+            gap: func.rem(24);
+        }
+    }
+}

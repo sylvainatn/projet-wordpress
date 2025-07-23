@@ -3,7 +3,8 @@
 
 .blog-content {
    margin-top: 4rem;
-   display: grid;
+   display: flex;
+   flex-wrap: wrap;
    grid-template-columns: 2fr 1fr;
    gap: 4rem;
    width: 85vw;
@@ -138,6 +139,11 @@
                   flex: 1;
                }
             }
+         }
+
+         @media (max-width: 1200px) {
+            grid-template-columns: 1fr; // une seule colonne sur tablette
+
          }
       }
 
@@ -621,18 +627,20 @@
       background: #ffffff;
       border-radius: 8px;
 
-      .comments-title {
-         font-family: f.$font-primary;
-         font-size: 1.5rem;
-         font-weight: 600;
-         margin-bottom: 2rem;
-         color: c.$primary-text;
-      }
+
 
       .comment-list {
          list-style: none;
          padding: 0;
          margin: 0;
+
+         .comments-title {
+            font-family: f.$font-primary;
+            font-size: 35px;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            color: c.$primary-text;
+         }
 
 
          .comment-card {
@@ -689,7 +697,7 @@
       .comment-form {
          display: flex;
          flex-direction: column;
-         align-items:start;
+         align-items: start;
          gap: 1.5rem;
 
          .full-name {
@@ -731,14 +739,15 @@
             font-family: f.$font-primary;
             font-size: 20px;
             font-weight: 800;
+            letter-spacing: 1px;
             cursor: pointer;
          }
 
-         h3 {
+         .reply-title {
             font-family: f.$font-primary;
-            font-size: 1.25rem;
+            font-size: 35px;
             font-weight: 600;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
             color: c.$primary-text;
          }
 
@@ -752,7 +761,6 @@
       }
    }
 
-   // Responsive pour mobile et tablette
    @media (max-width: 768px) {
       .blog-content {
          grid-template-columns: 1fr;

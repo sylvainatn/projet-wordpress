@@ -2,7 +2,9 @@
 
 <main class="container">
 
+   <div class="hero-content">
    <h1 class="hero-title">Blog.</h1>
+   </div>
 
    <section class="blog-content">
       <?php get_template_part('template-parts/blog-sidebar'); ?>

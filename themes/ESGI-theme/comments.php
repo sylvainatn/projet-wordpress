@@ -30,19 +30,21 @@ $current_post_comments = get_comments(array(
 ?>
 
 <div id="comments" class="comments-area">
+
    <?php if (!empty($current_post_comments)) : ?>
-      <h2 class="comments-title">
-         <?php
-         $comments_number = count($current_post_comments);
-         if ($comments_number == 1) {
-            printf('Un commentaire sur "%s"', get_the_title($current_post_id));
-         } else {
-            printf('Comments (%1$s)', number_format_i18n($comments_number), get_the_title($current_post_id));
-         }
-         ?>
-      </h2>
+
 
       <ol class="comment-list">
+         <h2 class="comments-title">
+            <?php
+            $comments_number = count($current_post_comments);
+            if ($comments_number == 1) {
+               printf('Un commentaire sur "%s"', get_the_title($current_post_id));
+            } else {
+               printf('Comments (%1$s)', number_format_i18n($comments_number), get_the_title($current_post_id));
+            }
+            ?>
+         </h2>
          <?php foreach ($current_post_comments as $comment) : ?>
             <li class="comment-card">
                <div class="comment-author">
@@ -99,8 +101,8 @@ $current_post_comments = get_comments(array(
    <?php
    // Formulaire de commentaire simple HTML
    if (comments_open($current_post_id)) : ?>
-      <h3>Leave a reply</h3>
       <form class="comment-form" method="post" action="<?php echo site_url('/wp-comments-post.php'); ?>">
+         <h2 class="reply-title">Leave a reply</h2>
          <input type="hidden" name="comment_post_ID" value="<?php echo esc_attr($current_post_id); ?>" />
          <input class="full-name" name="author" id="author" placeholder="Full name" required />
          <textarea class="comment-message" name="comment" id="comment" placeholder="Message" required></textarea>

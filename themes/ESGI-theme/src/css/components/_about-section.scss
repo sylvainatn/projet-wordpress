@@ -18,8 +18,11 @@
     }
 
     .about-content {
+        max-width: 300px;
         text-align: center;
         text-align: left;
+        margin-left: auto;
+        margin-right: auto;
 
         @media (min-width: 450px) {
             max-width: 400px;

@@ -5825,8 +5825,11 @@ ul {
   align-items: center;
 }
 .about-section .about-content {
+  max-width: 300px;
   text-align: center;
   text-align: left;
+  margin-left: auto;
+  margin-right: auto;
 }
 @media (min-width: 450px) {
   .about-section .about-content {

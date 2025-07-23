@@ -1,5 +1,8 @@
 <?php
 
+
+
+
 // TOUTE LA LOGIQUE DU THEME //
 
 // Enregistrer les emplacements de menu
@@ -641,13 +644,10 @@ function esgi_add_blog_query_vars($vars)
     return $vars;
 }
 
-
-function simple_contact_redirect() {
-    if ($_SERVER['REQUEST_URI'] == '/contact' || $_SERVER['REQUEST_URI'] == '/contact/') {
-         include(get_template_directory() . '/page-contact.php');
-        exit;
+// Enregistre le champ 'author' du formulaire comme meta personnalisée 'author' sur le commentaire
+add_action('comment_post', function ($comment_id) {
+    if (isset($_POST['author'])) {
+        $full_name = sanitize_text_field($_POST['author']);
+        add_comment_meta($comment_id, 'author', $full_name, true);
     }
-}
-add_action('template_redirect', 'simple_contact_redirect');
-
-
+});

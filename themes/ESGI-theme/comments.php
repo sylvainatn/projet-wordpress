@@ -37,20 +37,39 @@ $current_post_comments = get_comments(array(
          if ($comments_number == 1) {
             printf('Un commentaire sur "%s"', get_the_title($current_post_id));
          } else {
-            printf('%1$s commentaires sur "%2$s"', number_format_i18n($comments_number), get_the_title($current_post_id));
+            printf('Comments (%1$s)', number_format_i18n($comments_number), get_the_title($current_post_id));
          }
          ?>
       </h2>
 
       <ol class="comment-list">
-         <?php
-         // Utiliser wp_list_comments avec les commentaires spécifiques du post
-         wp_list_comments(array(
-            'style'       => 'ol',
-            'short_ping'  => true,
-            'avatar_size' => 50,
-         ), $current_post_comments);
-         ?>
+         <?php foreach ($current_post_comments as $comment) : ?>
+            <li class="comment-card">
+               <div class="comment-author">
+                  <?php
+                  // Affiche le champ personnalisé 'Full name' si présent, sinon l'auteur classique
+                  $full_name = get_comment_meta($comment->comment_ID, 'author', true);
+                  echo esc_html($full_name ? $full_name : get_comment_author($comment));
+                  ?>
+               </div>
+               <div class="comment-content">
+                  <?php echo esc_html($comment->comment_content); ?>
+               </div>
+               <div>
+                  <?php
+                  $reply_link = get_comment_reply_link(array(
+                     'reply_text' => '<span class="reply-link-content"><svg class="reply-link-icon" width="16" height="14" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.259652 4.93237L5.75978 0.182841C6.24122 -0.23294 7 0.104591 7 0.750466V3.25212C12.0197 3.30959 16 4.31562 16 9.07268C16 10.9927 14.7631 12.8948 13.3958 13.8893C12.9692 14.1997 12.3611 13.8102 12.5184 13.3071C13.9354 8.77547 11.8463 7.5724 7 7.50265V10.25C7 10.8969 6.24062 11.2329 5.75978 10.8176L0.259652 6.06762C-0.0863164 5.76881 -0.0867851 5.23159 0.259652 4.93237Z"/></svg>Reply</span>',
+                     'depth' => 1,
+                     'max_depth' => get_option('thread_comments_depth'),
+                     'add_below' => 'comment-card',
+                     'before' => '',
+                     'after' => '',
+                  ), $comment);
+                  if ($reply_link) echo $reply_link;
+                  ?>
+               </div>
+            </li>
+         <?php endforeach; ?>
       </ol>
 
       <?php
@@ -78,21 +97,14 @@ $current_post_comments = get_comments(array(
    <?php endif; ?>
 
    <?php
-   // Formulaire de commentaire - s'assurer qu'il pointe vers le bon post
-   if (comments_open($current_post_id)) :
-      $commenter = wp_get_current_commenter();
-      comment_form(array(
-         'title_reply'          => 'Laisser un commentaire',
-         'title_reply_to'       => 'Répondre à %s',
-         'cancel_reply_link'    => 'Annuler la réponse',
-         'label_submit'         => 'Publier le commentaire',
-         'comment_field'        => '<p class="comment-form-comment"><label for="comment">Commentaire</label><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true" required="required"></textarea></p>',
-         'fields'               => array(
-            'author' => '<p class="comment-form-author"><label for="author">Nom *</label><input id="author" name="author" type="text" value="' . esc_attr($commenter['comment_author']) . '" size="30" aria-required="true" required="required" /></p>',
-            'email'  => '<p class="comment-form-email"><label for="email">Email *</label><input id="email" name="email" type="email" value="' . esc_attr($commenter['comment_author_email']) . '" size="30" aria-required="true" required="required" /></p>',
-            'url'    => '<p class="comment-form-url"><label for="url">Site web</label><input id="url" name="url" type="url" value="' . esc_attr($commenter['comment_author_url']) . '" size="30" /></p>',
-         ),
-      ), $current_post_id); // Spécifier explicitement l'ID du post
-   endif;
-   ?>
+   // Formulaire de commentaire simple HTML
+   if (comments_open($current_post_id)) : ?>
+      <h3>Leave a reply</h3>
+      <form class="comment-form" method="post" action="<?php echo site_url('/wp-comments-post.php'); ?>">
+         <input type="hidden" name="comment_post_ID" value="<?php echo esc_attr($current_post_id); ?>" />
+         <input class="full-name" name="author" id="author" placeholder="Full name" required />
+         <textarea class="comment-message" name="comment" id="comment" placeholder="Message" required></textarea>
+         <button class="submit-button" type="submit">Submit</button>
+      </form>
+   <?php endif; ?>
 </div>

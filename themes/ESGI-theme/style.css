@@ -4998,7 +4998,6 @@ ul {
   letter-spacing: 3px;
   line-height: 100%;
   margin-bottom: 2rem;
-  margin-left: 60px;
 }
 @media (min-width: 768px) {
   .hero-title {
@@ -5013,22 +5012,10 @@ ul {
 @media (min-width: 410px) {
   .hero-title {
     margin-bottom: 3rem;
-    margin-left: 60px;
-  }
-}
-@media (min-width: 576px) {
-  .hero-title {
-    margin-left: 100px;
-  }
-}
-@media (min-width: 768px) {
-  .hero-title {
-    margin-left: 140px;
   }
 }
 @media (min-width: 1400px) {
   .hero-title {
-    margin-left: 156px;
     margin-bottom: 10rem;
   }
 }
@@ -5086,6 +5073,7 @@ ul {
   width: 85vw;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 4rem;
 }
 .blog-content .main-posts-section .active-filters {
   margin-bottom: 2rem;
@@ -5595,8 +5583,7 @@ ul {
 }
 .blog-content .comments-area {
   margin-top: 3rem;
-  padding: 2rem;
-  background: #f8f9fa;
+  background: #ffffff;
   border-radius: 8px;
 }
 .blog-content .comments-area .comments-title {
@@ -5611,51 +5598,90 @@ ul {
   padding: 0;
   margin: 0;
 }
-.blog-content .comments-area .comment-list .comment {
+.blog-content .comments-area .comment-list .comment-card {
   margin-bottom: 2rem;
   padding: 1.5rem;
-  background: white;
-  border-radius: 8px;
-  border-left: 4px solid #e0e0e0;
+  background: #F9F9F9;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: space-between;
 }
-.blog-content .comments-area .comment-list .comment .comment-author {
-  font-weight: 600;
-  margin-bottom: 0.5rem;
+.blog-content .comments-area .comment-list .comment-card .comment-author {
+  font-family: "Mulish", sans-serif;
+  color: #050A3A;
+  font-weight: 700;
+  line-height: 100%;
+  font-size: 27px;
 }
-.blog-content .comments-area .comment-list .comment .comment-author .avatar {
-  border-radius: 50%;
-  margin-right: 10px;
-}
-.blog-content .comments-area .comment-list .comment .comment-meta {
+.blog-content .comments-area .comment-list .comment-card .comment-meta {
   font-size: 0.875rem;
   color: #8A8A8A;
   margin-bottom: 1rem;
 }
-.blog-content .comments-area .comment-list .comment .comment-content {
-  line-height: 1.6;
+.blog-content .comments-area .comment-list .comment-card .comment-content {
+  font-family: "Mulish", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 38px;
+  color: #8A8A8A;
 }
-.blog-content .comments-area .comment-list .comment .comment-content p {
-  margin-bottom: 1rem;
-}
-.blog-content .comments-area .comment-list .comment .comment-content p:last-child {
-  margin-bottom: 0;
-}
-.blog-content .comments-area .comment-list .comment .reply {
-  margin-top: 1rem;
-}
-.blog-content .comments-area .comment-list .comment .reply a {
+.blog-content .comments-area .comment-list .comment-card .reply-link-content {
+  font-family: "Mulish", sans-serif;
   color: #050A3A;
-  font-size: 0.875rem;
-  text-decoration: none;
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 100%;
+  letter-spacing: 1px;
 }
-.blog-content .comments-area .comment-list .comment .reply a:hover {
-  text-decoration: underline;
+.blog-content .comments-area .comment-list .comment-card .reply-link-icon {
+  width: 16px;
+  height: 14px;
+  fill: #050A3A;
+  margin-right: 0.5rem;
 }
 .blog-content .comments-area .comment-form {
-  margin-top: 2rem;
-  padding: 2rem;
-  background: white;
-  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 1.5rem;
+}
+.blog-content .comments-area .comment-form .full-name {
+  width: 100%;
+  height: 48px;
+  border: none;
+  border-bottom: 1px solid #e0e0e0;
+  border-radius: 4px;
+  font-family: "Mulish", sans-serif;
+  font-size: 1rem;
+  color: #333;
+}
+.blog-content .comments-area .comment-form .full-name:focus {
+  border-bottom: 1px solid #e0e0e0;
+  outline: none;
+}
+.blog-content .comments-area .comment-form .comment-message {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #e0e0e0;
+  border-radius: 4px;
+  font-family: "Mulish", sans-serif;
+  font-size: 1rem;
+  color: #333;
+  min-height: 100px;
+}
+.blog-content .comments-area .comment-form .comment-message:focus {
+  border-bottom: 1px solid #e0e0e0;
+  outline: none;
+}
+.blog-content .comments-area .comment-form .submit-button {
+  background: #ffffff;
+  color: #050A3A;
+  border: none;
+  font-family: "Mulish", sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  cursor: pointer;
 }
 .blog-content .comments-area .comment-form h3 {
   font-family: "Mulish", sans-serif;
@@ -5663,51 +5689,6 @@ ul {
   font-weight: 600;
   margin-bottom: 1.5rem;
   color: #050A3A;
-}
-.blog-content .comments-area .comment-form p {
-  margin-bottom: 1rem;
-}
-.blog-content .comments-area .comment-form p label {
-  display: block;
-  font-weight: 500;
-  margin-bottom: 0.5rem;
-  color: #050A3A;
-}
-.blog-content .comments-area .comment-form p input[type=text],
-.blog-content .comments-area .comment-form p input[type=email],
-.blog-content .comments-area .comment-form p input[type=url],
-.blog-content .comments-area .comment-form p textarea {
-  width: 100%;
-  padding: 0.75rem;
-  border: 1px solid #e0e0e0;
-  border-radius: 4px;
-  font-family: "Mulish", sans-serif;
-  font-size: 1rem;
-}
-.blog-content .comments-area .comment-form p input[type=text]:focus,
-.blog-content .comments-area .comment-form p input[type=email]:focus,
-.blog-content .comments-area .comment-form p input[type=url]:focus,
-.blog-content .comments-area .comment-form p textarea:focus {
-  outline: none;
-  border-color: #050A3A;
-}
-.blog-content .comments-area .comment-form p textarea {
-  resize: vertical;
-  min-height: 120px;
-}
-.blog-content .comments-area .comment-form .form-submit input[type=submit] {
-  background: #050A3A;
-  color: white;
-  border: none;
-  padding: 0.75rem 2rem;
-  border-radius: 4px;
-  font-family: "Mulish", sans-serif;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-.blog-content .comments-area .comment-form .form-submit input[type=submit]:hover {
-  background: rgb(0.9523809524, 1.9047619048, 11.0476190476);
 }
 .blog-content .comments-area .no-comments {
   text-align: center;

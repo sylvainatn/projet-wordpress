@@ -14,24 +14,13 @@
 .hero-title {
     @include f.title-section;
     margin-bottom: 2rem;
-    // width: 280px;
-    margin-left: 60px;
 
     @media (min-width: 410px) {
         margin-bottom: 3rem;
-        margin-left: 60px;
     }
 
-    @media (min-width: 576px) {
-        margin-left: 100px;
-    }
-
-    @media (min-width: 768px) {
-        margin-left: 140px;
-    }
 
     @media (min-width: 1400px) {
-        margin-left: 156px;
         margin-bottom: 10rem;
     }
 }

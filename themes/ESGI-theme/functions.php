@@ -585,9 +585,9 @@ function esgi_fallback_mobile_menu()
 {
     echo '<ul class="dropdown-nav-list">';
     echo '<li><a href="' . home_url('/') . '">Home</a></li>';
-    echo '<li><a href="' . home_url('/#about') . '">About Us</a></li>';
-    echo '<li><a href="' . home_url('/#services') . '">Services</a></li>';
-    echo '<li><a href="' . home_url('/#partners') . '">Partners</a></li>';
+    echo '<li><a href="' . home_url('/about-us') . '">About Us</a></li>';
+    echo '<li><a href="' . home_url('/services') . '">Services</a></li>';
+    echo '<li><a href="' . home_url('/partners') . '">Partners</a></li>';
     echo '<li><a href="' . home_url('/blog') . '">Blog</a></li>';
     echo '<li><a href="' . home_url('/contact') . '">Contact</a></li>';
     echo '</ul>';

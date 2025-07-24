@@ -29,35 +29,16 @@ get_header();
                         if (has_post_thumbnail($post_obj)) : ?>
                             <div class="post-thumbnail">
                                 <?php echo get_the_post_thumbnail($post_obj, 'large', array('class' => 'img-fluid')); ?>
-                                <div class="post-category">
-                                    <?php
-                                    $categories = get_the_category($current_post_id);
-                                    if (!empty($categories)) {
-                                        echo esc_html($categories[0]->name);
-                                    } else {
-                                        echo 'Non classé';
-                                    }
-                                    ?>
-                                </div>
                             </div>
                         <?php else : ?>
                             <div class="post-thumbnail">
                                 <img src="<?php echo esc_url(get_template_directory_uri()); ?>/src/images/png/1.png" alt="Image par défaut" class="img-fluid" />
-                                <div class="post-category">
-                                    <?php
-                                    $categories = get_the_category($current_post_id);
-                                    if (!empty($categories)) {
-                                        echo esc_html($categories[0]->name);
-                                    } else {
-                                        echo 'Non classé';
-                                    }
-                                    ?>
-                                </div>
                             </div>
                         <?php endif; ?>
 
                         <!-- Contenu avec padding -->
                         <div class="post-info">
+
                             <div class="post-category-text">
                                 <?php
                                 $categories = get_the_category();
@@ -72,6 +53,17 @@ get_header();
                             <div class="post-content">
                                 <?php the_content(); ?>
                             </div>
+
+                            <?php
+                            $tags = get_the_tags($current_post_id);
+                            if ($tags) : ?>
+                                <div class="tag-list">
+                                    <?php foreach ($tags as $tag) : ?>
+                                        <span class="post-tag"><?php echo esc_html($tag->name); ?></span>
+                                    <?php endforeach; ?>
+                                </div>
+                            <?php endif; ?>
+
 
                             <?php get_template_part('template-parts/post-footer-menu'); ?>
                         </div>

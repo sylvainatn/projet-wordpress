@@ -158,6 +158,7 @@ $accent-color: #3f51b5;
 }
 ```
 
+
 ### Navigateurs supportés
 - Chrome (2 dernières versions)
 - Firefox (2 dernières versions)

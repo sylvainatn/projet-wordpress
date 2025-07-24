@@ -1,4 +1,9 @@
-<?php get_header(); ?>
+<?php
+/*
+Template Name: Contact Template
+*/
+
+get_header(); ?>
 
 <div class="contact-page">
     <h1 class="contact-title">Contacts.</h1>

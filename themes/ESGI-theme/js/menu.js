@@ -26,9 +26,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         
         // Fermer le menu au scroll
-        window.addEventListener('scroll', function() {
-            dropdownMenu.classList.remove('show');
-        });
+        // window.addEventListener('scroll', function() {
+        //     dropdownMenu.classList.remove('show');
+        // });
         
         // Fermer le menu avec la touche Escape
         document.addEventListener('keydown', function(e) {

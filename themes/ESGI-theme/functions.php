@@ -1,8 +1,5 @@
 <?php
 
-
-
-
 // TOUTE LA LOGIQUE DU THEME //
 
 // Enregistrer les emplacements de menu

@@ -519,6 +519,24 @@ function esgi_customize_register($wp_customize)
         'mime_type' => 'image',
         'description' => __('Sélectionnez une image pour la section Corp Parties', 'ESGI'),
     )));
+
+
+    // Section Blog
+    $wp_customize->add_section('esgi_blog_section', array(
+        'title' => __('Blog Page', 'ESGI'),
+        'priority' => 50,
+    ));
+
+    // Blog - Titre
+    $wp_customize->add_setting('esgi_blog_title', array(
+        'default' => 'Blog.',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+    $wp_customize->add_control('esgi_blog_title', array(
+        'label' => __('Blog Title', 'ESGI'),
+        'section' => 'esgi_blog_section',
+        'type' => 'text',
+    ));
 }
 
 

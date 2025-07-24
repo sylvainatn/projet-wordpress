@@ -3,7 +3,7 @@
 <main class="container">
 
    <div class="hero-content">
-   <h1 class="hero-title">Blog.</h1>
+      <h1 class="hero-title"><?php echo esc_html(get_theme_mod('esgi_blog_title', 'Blog.')); ?></h1>
    </div>
 
    <section class="blog-content">

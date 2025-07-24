@@ -8,11 +8,11 @@ get_header();
 <main class="container">
     <?php if (have_posts()) : ?>
         <?php while (have_posts()) : the_post(); ?>
-            <?php 
+            <?php
             // Sauvegarder l'ID du post dès le début pour éviter les conflits
             $current_post_id = get_the_ID();
             ?>
-            
+
             <div class="hero-content">
                 <h1 class="hero-title"><?php the_title(); ?></h1>
             </div>
@@ -24,12 +24,14 @@ get_header();
                 <div class="main-posts-section">
                     <article class="single-post" id="post-<?php echo $current_post_id; ?>">
                         <!-- Image en pleine largeur -->
-                        <?php if (has_post_thumbnail()) : ?>
+                        <?php
+                        $post_obj = get_post($current_post_id);
+                        if (has_post_thumbnail($post_obj)) : ?>
                             <div class="post-thumbnail">
-                                <?php the_post_thumbnail('large', array('class' => 'img-fluid')); ?>
+                                <?php echo get_the_post_thumbnail($post_obj, 'large', array('class' => 'img-fluid')); ?>
                                 <div class="post-category">
                                     <?php
-                                    $categories = get_the_category();
+                                    $categories = get_the_category($current_post_id);
                                     if (!empty($categories)) {
                                         echo esc_html($categories[0]->name);
                                     } else {
@@ -43,7 +45,7 @@ get_header();
                                 <img src="<?php echo esc_url(get_template_directory_uri()); ?>/src/images/png/1.png" alt="Image par défaut" class="img-fluid" />
                                 <div class="post-category">
                                     <?php
-                                    $categories = get_the_category();
+                                    $categories = get_the_category($current_post_id);
                                     if (!empty($categories)) {
                                         echo esc_html($categories[0]->name);
                                     } else {
@@ -74,21 +76,21 @@ get_header();
                             <?php get_template_part('template-parts/post-footer-menu'); ?>
                         </div>
                     </article>
-                    
+
                     <!-- Section commentaires -->
                     <?php if (comments_open($current_post_id) || get_comments_number($current_post_id)) : ?>
                         <section class="comments-section">
                             <?php
                             // S'assurer que le contexte global est correct
                             global $post;
-                            
+
                             // Forcer le post courant
                             $post = get_post($current_post_id);
                             setup_postdata($post);
-                            
+
                             // Afficher le template des commentaires
                             comments_template();
-                            
+
                             // Restaurer le contexte
                             wp_reset_postdata();
                             ?>
